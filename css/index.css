@@ -17,7 +17,7 @@
 	height: 65%;
 	width: 100%;
 		/* opacity: 0.7; */
-	background-color: #ccc;
+	/* background-color: #ccc; */
 	/* background-image:url('../img/paper.jpg'); */
 	
 	/* overflow: hidden; */
@@ -69,7 +69,7 @@
 	-ms-align-items: center;
 	align-items: center;
 	width: 100%;
-	/* background:linear-gradient(to bottom, #000, #eee); */
+	/* background:linear-gradient(to bottom, #fff, #eee); */
 	
 }
 #p-time-background{
@@ -78,9 +78,13 @@
 	left: 0;
 	bottom: 0;
 	right: 0;
+
 	background-image: url('../img/她.jpg');
-	background-size: cover;
-	opacity: 0.5;
+
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	opacity: 0.8;
 }
 #p-bottom-text{
 	color: #a4a4a4;
