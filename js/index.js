@@ -61,3 +61,14 @@
     var now=new Date();
     textNow.innerHTML='今天是'+now.getUTCFullYear()+'年'+(now.getMonth()+1)+'月'+now.getUTCDate()+'日';
     var windowTimer = window.setInterval(updateTimer,1000);
+
+
+    // 底部文字数组
+    var textArr=[
+        '年轻的时候我以为钱就是一切，现在老了才知道，确实如此。',
+        '你最可爱',
+        '我把我整个灵魂都给你',
+        '山中何事，松花酿酒，春水煎茶。',
+        '请问阁下是叫有容吗？'
+    ];
+    
