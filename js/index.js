@@ -1,8 +1,8 @@
  // var timerP=document.getElementsByClassName("container")[0].firstChild;
  //    var timerP2=document.getElementById("timer");
-    var timerP2=document.getElementById("p-time-change");
+    var timerP2=document.getElementById("p-text-center");
     // console.log(timerP2);
-    timerP2.innerHTML=1;
+    // timerP2.innerHTML=1;
     // alert(timerP2.innerHTML);
     // var springFestival=new Date(2018,1,16,0,0,0);
     var memory=new Date(2017,5,29,0,0,0);
@@ -43,7 +43,14 @@
         {
             surplusMs=surplusMs+"0";
         }
-        timerP2.innerHTML= surplusDays+"天"+surplusHours+"小时"+surplusMinutes+"分钟"+(surplusSeconds+1)+"秒"+"</p>";
+        // timerP2.innerHTML= surplusDays+"天"+surplusHours+"小时"+surplusMinutes+"分钟"+(surplusSeconds+1)+"秒"+"</p>";
+        var tChildArr=timerP2.childNodes;
+        tChildArr[0].innerHTML=surplusDays+"天";
+        tChildArr[1].innerHTML=surplusHours+"小时";
+        tChildArr[2].innerHTML=surplusMinutes+"分钟";
+        tChildArr[3].innerHTML=(surplusSeconds+1)+"秒";
+        console.log(tChildArr);
+
         // console.log(1);
     }
     updateTimer();
