@@ -5,6 +5,7 @@
 	background-color: red;
 } */
 .p-container{
+	/* background-image:url('../img/paper.jpg'); */
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -12,10 +13,16 @@
 	left: 0;
 }
 #p-time{
+	position: relative;
 	height: 65%;
 	width: 100%;
-	background:linear-gradient(to bottom, #00ccff, #ece);
-	/* background-color: #00ccff; */
+		/* opacity: 0.7; */
+	background-color: #ccc;
+	/* background-image:url('../img/paper.jpg'); */
+	
+	/* overflow: hidden; */
+	/* background:linear-gradient(to bottom, rgba(204,204,204,0.2), rgba(0,0,0,0.8)); */
+
 }
 #time-header{
 	height: 50px;
@@ -26,7 +33,7 @@
 	align-items: center;
 }
 #time-header a{
-	color: #fff;
+	color: #333;
 	opacity: 0.7;
 	font-size: 14px;
 	font-weight: bold;
@@ -38,8 +45,8 @@
 #p-text p{
 	margin: 18px 0;
 	padding-left: 42px;
-	color: #fff;
-	opacity: 0.9;
+	color: #000;
+	opacity: 0.6;
 	font-size: 16px;
 	font-weight: bold;
 }
@@ -49,7 +56,7 @@
 	justify-content: center;
 	-ms-align-items: center;
 	align-items: center;
-	color: #fff;
+	color: #000;
 	font-size: 24px;
 	font-weight: bold;
 }
@@ -62,8 +69,18 @@
 	-ms-align-items: center;
 	align-items: center;
 	width: 100%;
-	/* background:linear-gradient(to bottom, #fff, #eee); */
+	/* background:linear-gradient(to bottom, #000, #eee); */
 	
+}
+#p-time-background{
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-image: url('../img/她.jpg');
+	background-size: cover;
+	opacity: 0.5;
 }
 #p-bottom-text{
 	color: #a4a4a4;
@@ -78,5 +95,5 @@
 	font-weight: normal;
 	color: #ccc;
 	opacity: 0.7;
-	background-color: ;
+	/* background-color: ; */
 }
