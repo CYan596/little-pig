@@ -2,26 +2,39 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, user-scalable=1">
+	<meta name="viewport" content="width=device-width, user-scalable=1, user-scalable=no">
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/index.css">
 	<link rel="stylesheet" href="lib/animate.css/animate.css">
 	<title>一只小猪</title>
 </head>
 <body>
+	<!-- 头部导航 -->
+	<div id="time-header" class="">
+		<a class="active" href="">计时</a>
+		<a href="">记录</a>
+		<a href="">匣子</a>
+	</div>
+
 	<!-- 主页、计时页 -->
+	<div id="frame">
+	
 
 	<div id="p-time-background"></div>
 	<div class="p-container">
+		
+			
+		<div id="p-hook">
+			<div id="r-container">
+				测试页面
+			</div>
+		</div>
+
 		<!-- 蓝色背景区域 -->
 		<div id="p-time">
 			
 			<!-- 头部导航 -->
-			<div id="time-header" class="">
-				<a class="active" href="">计时</a>
-				<a href="">记录</a>
-				<a href="">匣子</a>
-			</div>
+			
 
 			<!-- 上部文字 -->
 			<div id="p-text"><p  class="animated fadeInUp"></p>
@@ -36,21 +49,25 @@
 
 		<!-- 白色背景区域 -->
 		<div id="p-bottom">
-			<div id="p-bottom-text" class="animated fadeInUp">
+			<!-- <div id="p-bottom-text" class="animated fadeInUp">
 				<p>"人生是一场错过，愿你别蹉跎"</p>
-			</div>
+			</div> -->
 
-			<div id="author" class="zoomIn animated">
-				一只小猪
+			<div id="author" class="">
+				©一只小猪
 			</div>
 		</div>
 
 
 		
 	</div>
+
+
+	</div>
 </body>
 	
 <script src="lib/jquery/jquery.js"></script>
+<script src="lib/hammer.js"></script>
 <script src="js/index.js"></script>
 
 </html>
