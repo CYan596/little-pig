@@ -197,3 +197,33 @@ body,html{
 
 	/* margin-left: 100%; */
 }
+#sendbox{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	height: 36px;
+	width: 100%;
+	position: absolute;
+	bottom:50px;
+	background-color: #fafafa;
+}
+#sendbox input{
+	height: 24px;
+	text-indent: 20px;
+	font-size: 14px;
+	color: #d6d6d6;
+	width: 80%;
+	border-radius: 8px;
+	border: none;
+	background-color: #f4f4f4;
+}
+#sendbox button{
+	border-radius: 8px;
+	border: none;
+	height: 26px;
+	width: 48px;
+}
+.wrap{
+	height: 100%;
+	width: 100%;
+}

@@ -96,15 +96,13 @@
 
         }
          $(".p-container").css('transform','translateX('+(-w)+'px)');
-             console.log("向左移动ss");
-        console.log("向左移动");
+            
     });
     mc.on('swiperight', function (ev) {
         if(ev.deltaX>4){
            
         }
          $(".p-container").css('transform','translateX('+(0)+'px)');
-        console.log("向右移动");
     });
 
     // hammerstart.get('pan').set({
