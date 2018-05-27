@@ -5,7 +5,7 @@
 	background-color: red;
 } */
 body,html{
-	overflow: hidden;
+	
 }
 #frame{
 	position: absolute;
@@ -153,14 +153,15 @@ body,html{
 	opacity: 0.7;
 	transform:  translateY(50px);
 }
+
 #p-time-background{
-	position: absolute;
+	/* position: absolute; */
 	margin: 30px;
-	top: 0;
+	/* top: 0;
 	left: 0;
 	bottom: 0;
 	right: 0;
-
+ */
 	background-image: url('../img/她.jpg');
 
 	background-size: contain;
@@ -212,7 +213,7 @@ body,html{
 	height: 50px;
 	width: 100%;
 	position: absolute;
-	bottom:50px;
+	bottom:0;
 	background-color: #fafafa;
 }
 #sendbox input{
@@ -286,12 +287,4 @@ body,html{
 
 	background:linear-gradient(to bottom, #ff7373, #ff4040);
 
-}
-#pFix{
-	height: 200px;
-	width: 200px;
-	opacity: 0.6;
-	background-color:#ccc;
-	position: fixed;
-	bottom: 20px;
 }

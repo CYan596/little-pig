@@ -28,23 +28,23 @@
 // Bmob数据查询测试
     var query = new Bmob.Query(TestMessage);
     // 查询所有数据
-    query.find({
-      success: function(results) {
-        console.log(results);
-        messageData=results;
-        // alert("共查询到 " + results.length + " 条记录");
-        // 循环渲染查询到的数据
-        for (var i = 0; i < results.length; i++) {
-          var object = results[i];
-          // alert(object.id + ' - ' + object.get('userMessage'));
+    // query.find({
+    //   success: function(results) {
+    //     console.log(results);
+    //     messageData=results;
+    //     // alert("共查询到 " + results.length + " 条记录");
+    //     // 循环渲染查询到的数据
+    //     for (var i = 0; i < results.length; i++) {
+    //       var object = results[i];
+    //       // alert(object.id + ' - ' + object.get('userMessage'));
 
-        }
+    //     }
 
-      },
-      error: function(error) {
-        alert("查询失败: " + error.code + " " + error.message);
-      }
-    });
+    //   },
+    //   error: function(error) {
+    //     alert("查询失败: " + error.code + " " + error.message);
+    //   }
+    // });
 
     // console.log(messageData);
 
@@ -134,9 +134,9 @@
            
 
             // console.log(h);
-            $("#r-container").css("height",h);
+            $("#r-container").css("height",h-50);
             $("#r-container").css("width",w);
-            $("#b-container").css("height",h);
+            $("#b-container").css("height",h-50);
             $("#b-container").css("width",w);
         });
 
