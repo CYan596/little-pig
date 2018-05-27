@@ -1,4 +1,7 @@
-
+// 初始化看板娘
+    //资源目录
+    var message_Path = 'lib/Live2dRem-master/live2d/';//资源目录，如果目录不对请更改
+    
 
 // 初始化Bmob数据服务
 // Bmob数据存储测试
@@ -127,7 +130,7 @@
     var h=window.innerHeight||document.body.clientHeight||document.documentElement.clientHeight;
     var w=window.innerWidth||document.body.clientWidth||document.documentElement.clientWidth;
     // console.log(w);
-    $(window).on("load",function(){
+    $(window).on("load resize",function(){
            
 
             // console.log(h);
@@ -193,7 +196,7 @@
         
         // console.log(textOArr.chats.length);
         // $(".chat-list-wrap").empty();
-        
+
         for(var i=0;i<2;i++){
 
             // $(".chat-list-wrap").append("<div class=\"chat-list-line\"><p class=\"line-p1\">"+textOArr.chats[i].name+" "+textOArr.chats[i].time+"</p><p class=\"line-p2\">"+" "+textOArr.chats[i].said+"</p></div>");

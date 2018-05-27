@@ -55,7 +55,7 @@ body,html{
 
 }
 #time-header a{
-	color: #333;
+	color: #777;
 	opacity: 0.7;
 	font-size: 14px;
 	font-weight: bold;
@@ -286,4 +286,12 @@ body,html{
 
 	background:linear-gradient(to bottom, #ff7373, #ff4040);
 
+}
+#pFix{
+	height: 200px;
+	width: 200px;
+	opacity: 0.6;
+	background-color:#ccc;
+	position: fixed;
+	bottom: 20px;
 }
