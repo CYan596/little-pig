@@ -120,8 +120,6 @@
     var textArr=[
         '年轻的时候我以为钱就是一切，现在老了才知道，确实如此。',
         '你最可爱',
-        '我把我整个灵魂都给你',
-        '山中何事，松花酿酒，春水煎茶。',
         '请问阁下是叫有容吗？'
     ];
     
@@ -138,7 +136,18 @@
             $("#r-container").css("width",w);
             $("#b-container").css("height",h-50);
             $("#b-container").css("width",w);
+            
         });
+
+    // 处理输入框错位问题
+    $("#send").focus(function(){
+         $("#sendbox").removeClass("send-top").addClass("send-bottom");
+         console.log("1");
+    })
+   
+    // $("input").focus(); 或$("input").focus(function(){这里是获取焦点时的事件}) 
+    // $("input").blur(); 或$("input").blur(function(){这里是失去焦点时的事件}) 
+ 
 
 // 滑屏事件处理
 

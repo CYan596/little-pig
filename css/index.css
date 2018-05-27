@@ -288,3 +288,9 @@ body,html{
 	background:linear-gradient(to bottom, #ff7373, #ff4040);
 
 }
+.send-top{
+	/* top: 30px; */
+}
+.send-bottom{
+	top: 40%;
+}
