@@ -315,15 +315,16 @@ body,html{
     left:0;  
     bottom: 0;
     right: 0;
-    background-color: #bbb;
+    background-color: #eee;
     opacity: 1;
     z-index:999;  
 
     font-size: 30px;
     color: rgba(200, 200, 200, 0.5);
     padding: 1em;
-    -webkit-transition: .3s color, .3s border;
-    transition: .3s color, .3s border;
+    /* -webkit-transition: .3s color, .3s border;
+    transition: .3s color, .3s border; */
+    transition: all 1s;
 } 
 .loader-01 {
 	display: inline-block;

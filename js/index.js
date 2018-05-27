@@ -153,7 +153,7 @@
     // 当前屏幕所在
     var screenState=1;
 
-    var container = document.getElementsByClassName("p-container")[0];
+    var container = document.getElementById("loading");
     // console.log(pMain);
     var mc = new Hammer.Manager(container);
     Swipe = new Hammer.Swipe();
@@ -219,6 +219,6 @@
 
 // loading事件
 $(window).ready(function(){  
-    $("#loading").css("opacity",0).css("display",'none');
+    $("#loading").css("opacity",0);
     
 });  
