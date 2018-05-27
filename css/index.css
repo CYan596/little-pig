@@ -216,7 +216,7 @@ body,html{
 	bottom:0;
 	background-color: #fafafa;
 }
-#sendbox input{
+/* #sendbox input{
 	height: 34px;
 	text-indent: 20px;
 	font-size: 14px;
@@ -225,13 +225,24 @@ body,html{
 	border-radius: 8px;
 	border: none;
 	background-color: #f4f4f4;
-}
+} */
 #sendbox button{
 	border-radius: 8px;
 	border: none;
 	height: 36px;
 	width: 52px;
 	background-color: #dddee2;
+}
+#send{
+	padding: 6px 0;
+	height: 18px;
+	text-indent: 10px;
+	font-size: 14px;
+	color: #d6d6d6;
+	width: 80%;
+	border-radius: 8px;
+	border: none;
+	background-color: #f4f4f4;
 }
 .wrap{
 	height: 100%;

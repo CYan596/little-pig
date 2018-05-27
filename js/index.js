@@ -140,17 +140,14 @@
         });
 
     // 处理输入框错位问题
-    $("#send").focus(function(){
-         $("#sendbox").addClass("send-bottom");
-         console.log("1");
-    });
-    $("#send").blur(function(){
-         $("#sendbox").removeClass("send-bottom");
-         console.log("1");
-    })
-   
-    // $("input").focus(); 或$("input").focus(function(){这里是获取焦点时的事件}) 
-    // $("input").blur(); 或$("input").blur(function(){这里是失去焦点时的事件}) 
+    // $("#send").focus(function(){
+    //      $("#sendbox").addClass("send-bottom");
+    //      console.log("1");
+    // });
+    // $("#send").blur(function(){
+    //      $("#sendbox").removeClass("send-bottom");
+    //      console.log("1");
+    // })
  
 
 // 滑屏事件处理
