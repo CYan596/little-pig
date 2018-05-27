@@ -141,7 +141,11 @@
 
     // 处理输入框错位问题
     $("#send").focus(function(){
-         $("#sendbox").removeClass("send-top").addClass("send-bottom");
+         $("#sendbox").addClass("send-bottom");
+         console.log("1");
+    });
+    $("#send").blur(function(){
+         $("#sendbox").removeClass("send-bottom");
          console.log("1");
     })
    

@@ -288,6 +288,9 @@ body,html{
 	background:linear-gradient(to bottom, #ff7373, #ff4040);
 
 }
+#send{
+	/* transition: all 1s; */
+}
 .send-top{
 	/* top: 30px; */
 }
