@@ -1,0 +1,14 @@
+
+Hope you enjoy your new logo, here are the people that
+made your beautiful logo happen :)
+
+font name: kimberley_bl
+font link: https://www.fontspring.com/fonts/typodermic/kimberley
+font author: Typodermic
+font author site: http://typodermicfonts.com/
+
+icon designer: Tatiana
+icon designer link: /tatiana.selicka
+        
+{"bg":"#ffffff","icon-gradient-0":"#32142D","icon-gradient-1":"#32142D","font":"#000000"}
+      

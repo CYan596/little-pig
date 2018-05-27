@@ -26,7 +26,7 @@ body,html{
 	left: 0;
 	margin-left: 0;
 	/* transform:  translateX(-100%); */
-	transition: all 2.5s;
+	transition: all 1s;
 
 }
 #p-time{
@@ -51,6 +51,7 @@ body,html{
 	-ms-align-items: center;
 	align-items: center;
 	box-shadow:1px 0px 4px rgba(0,0,0,.3);
+	background:linear-gradient(to bottom, #fefefe, #eaecee);
 
 }
 #time-header a{
@@ -62,7 +63,8 @@ body,html{
 	/* animation-delay: 0.8s; */
 }
 #time-header .active{
-	opacity: 1;
+	/* opacity: 1; */
+	color: #000;
 }
 #p-text{
 	/* animation-delay: 0.8s; */
@@ -71,25 +73,25 @@ body,html{
 #p-text p{
 	margin: 18px 0;
 	padding-left: 42px;
-	color: #333;
+	color: #707070;
 	opacity: 0.6;
 	font-size: 16px;
 	font-weight: bold;
 }
 #p-text p:nth-child(1){
-	animation-delay: 0.5s;
-	animation-duration: 2s;
+	animation-delay: 0.2s;
+	animation-duration: 1s;
 }
 #p-text p:nth-child(2){
-	animation-delay: 2s;
-	animation-duration: 2s;
+	animation-delay: 0.4s;
+	animation-duration: 1s;
 }
 #p-text p:nth-child(3){
-	animation-delay: 4s;
-	animation-duration: 2s;
+	animation-delay: 0.6s;
+	animation-duration: 1s;
 }
 #p-time-change{
-	color: #333;
+	color: #707070
 	opacity: 0.6;
 
 }
@@ -101,11 +103,12 @@ body,html{
 	justify-content: center;
 	/* -ms-align-items: center;
 	align-items: center; */
-	color: #333;
+	color: ##707070;
 	font-size: 24px;
 	font-weight: bold;
 }
 #p-text-center p{
+	color: #707070;
 	font-size: 16px;
 	opacity: 0.6;
 	margin: 4px 0;
@@ -114,27 +117,28 @@ body,html{
 	margin: 8px 0;
 	font-size: 24px;
 	opacity: 0.8;
-	animation-delay: 5.5s;
-	animation-duration: 2s;
+	animation-delay: 0.8s;
+	animation-duration: 1s;
 }
 #p-text-center p:nth-child(2){
 	
 	font-size: 20px;
-	animation-delay:6.5s;
-	animation-duration: 2s;
+	animation-delay:1.2s;
+	animation-duration: 1s;
 }
 #p-text-center p:nth-child(3){
-	animation-delay:7.5s;
-	animation-duration: 2s;
+	animation-delay:1.2s;
+	animation-duration: 1s;
 }
 #p-text-center p:nth-child(4){
-	animation-delay:8.5s;
-	animation-duration: 2s;
+	animation-delay:1.2s;
+	animation-duration: 1s;
 }
 
 
 #p-bottom{
 	display: relative;
+
 	height: 35%;
 	/* background-color: red; */
 	display: flex;
@@ -144,6 +148,10 @@ body,html{
 	width: 100%;
 	/* background:linear-gradient(to bottom, #fff, #eee); */
 	
+}
+#p-bottom img{
+	opacity: 0.7;
+	transform:  translateY(50px);
 }
 #p-time-background{
 	position: absolute;
@@ -167,7 +175,7 @@ body,html{
 	font-weight: bold;
 	opacity: 0.8;
 
-	animation-delay:10s;
+	animation-delay:1.6s;
 	animation-duration: 3.5s;
 }
 #author{
@@ -178,7 +186,7 @@ body,html{
 	color: #ccc;
 	opacity: 0.7;
 	/* background-color: ; */
-	animation-delay:11s;
+	animation-delay:1.8s;
 	animation-duration: 3.5s;
 }
 
@@ -201,14 +209,14 @@ body,html{
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	height: 36px;
+	height: 50px;
 	width: 100%;
 	position: absolute;
 	bottom:50px;
 	background-color: #fafafa;
 }
 #sendbox input{
-	height: 24px;
+	height: 34px;
 	text-indent: 20px;
 	font-size: 14px;
 	color: #d6d6d6;
@@ -220,10 +228,62 @@ body,html{
 #sendbox button{
 	border-radius: 8px;
 	border: none;
-	height: 26px;
-	width: 48px;
+	height: 36px;
+	width: 52px;
+	background-color: #dddee2;
 }
 .wrap{
 	height: 100%;
 	width: 100%;
+}
+
+#b-container{
+	position: absolute;
+	transform:  translateX(100%);
+	background-color:#ccc;
+}
+
+/* 第二屏 */
+/* 信息展示框 */
+#r-messageContainer{
+	/* display: flex;
+	justify-content: center;
+	background-color: #eee; */
+	height: 100%;
+}
+.r-content{
+	margin: 10px auto;
+	width: 80%;
+	/* height: 30px; */
+	color: #fff;
+	padding: 10px 10px;
+	background:linear-gradient(to bottom, #6f8dd4, #5878bd);
+	
+	box-shadow:0 0 5px 1px rgba(0,0,0,.6) inset;
+	border-radius: 3px;
+	opacity: 0.6;
+	/* transform:  translateX(-10%); */
+}
+.r-content p:nth-child(1){
+	letter-spacing:1px;
+	font-size: 12px;
+	/* font-weight: bold; */
+	/* text-align: center; */
+	margin-bottom: 8px;
+}
+.r-content p:nth-child(2){
+
+	letter-spacing: 2px;
+	/* font-size: 12px; */
+	line-height: 20px;
+	font-size: 14px;
+	/* font-weight: bold; */
+	/* text-align: center; */
+	/* margin-bottom: 8px; */
+	text-indent: 10px;
+}
+.r-content2{
+
+	background:linear-gradient(to bottom, #ff7373, #ff4040);
+
 }

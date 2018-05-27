@@ -1,5 +1,54 @@
- // var timerP=document.getElementsByClassName("container")[0].firstChild;
- //    var timerP2=document.getElementById("timer");
+
+
+// 初始化Bmob数据服务
+// Bmob数据存储测试
+
+    Bmob.initialize("5fd1df2b91ff8b7a0987c2a05784a76c", "0b303f2990ad571937d2c980638a5a82");
+    // 创建Bmob.Object子类
+    var TestMessage = Bmob.Object.extend("TestMessage");
+    // 创建该类的一个实例
+    var testMessage = new TestMessage();
+    // 添加数据，第一个入口参数是Json数据
+    // testMessage.save({
+    //   userMessage: 'hello',  
+    // }, {
+    //   success: function(gameScore) {
+    //     // 添加成功
+    //   },
+    //   error: function(gameScore, error) {
+    //     // 添加失败
+    //   }
+    // });
+
+    var messageData=null;
+
+// Bmob数据查询测试
+    var query = new Bmob.Query(TestMessage);
+    // 查询所有数据
+    query.find({
+      success: function(results) {
+        console.log(results);
+        messageData=results;
+        // alert("共查询到 " + results.length + " 条记录");
+        // 循环渲染查询到的数据
+        for (var i = 0; i < results.length; i++) {
+          var object = results[i];
+          // alert(object.id + ' - ' + object.get('userMessage'));
+
+        }
+
+      },
+      error: function(error) {
+        alert("查询失败: " + error.code + " " + error.message);
+      }
+    });
+
+    // console.log(messageData);
+
+
+
+
+//倒计时逻辑代码
     var timerP2=document.getElementById("p-text-center");
     // console.log(timerP2);
     // timerP2.innerHTML=1;
@@ -14,6 +63,7 @@
     var nowTime;
     var nowYear;
     
+   
     
     // var springFestivalTime;
     // 年月日
@@ -76,44 +126,83 @@
     //设置记录页面宽高
     var h=window.innerHeight||document.body.clientHeight||document.documentElement.clientHeight;
     var w=window.innerWidth||document.body.clientWidth||document.documentElement.clientWidth;
-    console.log(w);
+    // console.log(w);
     $(window).on("load",function(){
            
 
             // console.log(h);
             $("#r-container").css("height",h);
             $("#r-container").css("width",w);
+            $("#b-container").css("height",h);
+            $("#b-container").css("width",w);
         });
 
-    // 滑动事件处理
+// 滑屏事件处理
+
+    // 当前屏幕所在
+    var screenState=1;
+
     var container = document.getElementsByClassName("p-container")[0];
     // console.log(pMain);
     var mc = new Hammer.Manager(container);
     Swipe = new Hammer.Swipe();
     mc.add(Swipe);
-    mc.on('swipeleft', function (ev) {
-        if(ev.deltaX>4){
+    mc.on('swipeleft', function (ev,fn) {
+        if(screenState==2){
+            $(".p-container").css('transform','translateX('+(-2*w)+'px)');
+            screenState++;
+
+        };
+        if(screenState==1){
+            $(".p-container").css('transform','translateX('+(-w)+'px)');
+            screenState++;
+        };
+        window.changeHeader();
+    });
+    mc.on('swiperight', function (ev,changeHeader) {
+        if(screenState==2){
+            $(".p-container").css('transform','translateX('+(0)+'px)');
+            screenState--;
+        };
+        if(screenState==3){
+            $(".p-container").css('transform','translateX('+(-w)+'px)');
+            screenState--;
+        };
+        window.changeHeader();
+    });
+
+    // changeHeader();
+    window.changeHeader=function changeHeader(){
+        $('#time-header').children("a").eq((screenState-1)).css("color", "#000").siblings().css("color", "#333");;
+        
+        
+        // console.log(1);
+    }
+
+    var tJson='{"name":"2323","sex":"afasdf","age":"6262"}';//json示例字符串
+    // console.log(tJson);
+
+// 二屏留言渲染 r
+
+    //参数：json格式字符串
+    //引擎：把传入的json格式字符串转化为js对象，将js对象渲染成聊天结点 dialog
+    // window.rEngine(RMessage);
+    function rEngine(time,message){
+        // console.log(Message);
+        // var t=JSON.parse('{"1": 1, "2": 2, "3": {"4": 4, "5": {"6": 6}}}');
+        
+        // console.log(textOArr.chats.length);
+        // $(".chat-list-wrap").empty();
+        
+        for(var i=0;i<2;i++){
+
+            // $(".chat-list-wrap").append("<div class=\"chat-list-line\"><p class=\"line-p1\">"+textOArr.chats[i].name+" "+textOArr.chats[i].time+"</p><p class=\"line-p2\">"+" "+textOArr.chats[i].said+"</p></div>");
+            //如果当前信息是该客户端用户所发，添加类line-mine
+            // if(textOArr.chats[i].name==userName){
+            //     $('.chat-list-line:last').addClass("line-mine");
+            // }
 
         }
-         $(".p-container").css('transform','translateX('+(-w)+'px)');
-            
-    });
-    mc.on('swiperight', function (ev) {
-        if(ev.deltaX>4){
-           
-        }
-         $(".p-container").css('transform','translateX('+(0)+'px)');
-    });
-
-    // hammerstart.get('pan').set({
-    //   direction: Hammer.DIRECTION_LEFT
-    // });
-    // hammerstart.on('pan', function(ev) {
-    //     if(ev.deltaX>10){
-    //         $(".p-container").css('transform','translateX(-100%)');
-    //     }
-    // });
-    // var pHammer = new Hammer(myElement, myOptions);
-    //     pHammer.on('pan', function(ev) {
-    //     console.log(ev); //输出拖移事件对象
-    // });
+        // console.log(textOArr.sites[1].name);
+        // $(".chat-list-container")[0].scrollTop=$(".chat-list-container")[0].scrollHeight; //确保滚动条的位置
+    }
