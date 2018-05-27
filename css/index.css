@@ -157,12 +157,6 @@ body,html{
 #p-time-background{
 	/* position: absolute; */
 	margin: 30px;
-	/* top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
- */
-	background-image: url('../img/她.jpg');
 
 	background-size: contain;
 	background-repeat: no-repeat;
@@ -238,7 +232,7 @@ body,html{
 	height: 18px;
 	text-indent: 10px;
 	font-size: 14px;
-	color: #d6d6d6;
+	color: #333;
 	width: 80%;
 	border-radius: 8px;
 	border: none;
@@ -307,4 +301,49 @@ body,html{
 }
 .send-bottom{
 	top: 20%;
+}
+/* 缓冲遮罩 */
+
+ #loading{
+ 	display: flex;
+ 	justify-content: center;
+ 	-ms-align-items: center;
+ 	align-items: center;
+
+ 	position:fixed;  
+    top:0;  
+    left:0;  
+    bottom: 0;
+    right: 0;
+    background-color: #bbb;
+    opacity: 1;
+    z-index:999;  
+
+    font-size: 30px;
+    color: rgba(200, 200, 200, 0.5);
+    padding: 1em;
+    -webkit-transition: .3s color, .3s border;
+    transition: .3s color, .3s border;
+} 
+.loader-01 {
+	display: inline-block;
+    width: 2em;
+    height: 2em;
+    color: inherit;
+    vertical-align: middle;
+    pointer-events: none;
+    border: .2em dotted currentcolor;
+    border-radius: 50%;
+    -webkit-animation: 1s loader-01 linear infinite;
+    animation: 1s loader-01 linear infinite;
+}
+@keyframes loader-01 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
 }

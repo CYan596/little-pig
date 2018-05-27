@@ -1,6 +1,4 @@
-// 初始化看板娘
-    //资源目录
-    var message_Path = 'lib/Live2dRem-master/live2d/';//资源目录，如果目录不对请更改
+
     
 
 // 初始化Bmob数据服务
@@ -65,13 +63,13 @@
     var surplusMs;
     var nowTime;
     var nowYear;
-    
-   
+    var tChildArr=timerP2.childNodes;
+    var now;
     
     // var springFestivalTime;
     // 年月日
     function updateTimer() {
-        var now=new Date();
+        now=new Date();
         nowTime=now.getTime();
         // springFestivalTime=springFestival.getTime();
         memoryTime=memory.getTime();
@@ -97,7 +95,7 @@
             surplusMs=surplusMs+"0";
         }
         // timerP2.innerHTML= surplusDays+"天"+surplusHours+"小时"+surplusMinutes+"分钟"+(surplusSeconds+1)+"秒"+"</p>";
-        var tChildArr=timerP2.childNodes;
+        
         tChildArr[0].innerHTML=(surplusDays+1)+"天";
         tChildArr[1].innerHTML=(surplusHours+1)+"小时";
         tChildArr[2].innerHTML=(surplusMinutes+1)+"分钟";
@@ -197,10 +195,9 @@
 
 // 二屏留言渲染 r
 
-    //参数：json格式字符串
-    //引擎：把传入的json格式字符串转化为js对象，将js对象渲染成聊天结点 dialog
-    // window.rEngine(RMessage);
-    function rEngine(time,message){
+    //参数：数组 第一项为时间，第二项为信息
+    //引擎：把传入的数组渲染后添加到第二屏中
+    function rEngine(messageArr){
         // console.log(Message);
         // var t=JSON.parse('{"1": 1, "2": 2, "3": {"4": 4, "5": {"6": 6}}}');
         
@@ -219,3 +216,9 @@
         // console.log(textOArr.sites[1].name);
         // $(".chat-list-container")[0].scrollTop=$(".chat-list-container")[0].scrollHeight; //确保滚动条的位置
     }
+
+// loading事件
+$(window).ready(function(){  
+    $("#loading").css("opacity",0).css("display",'none');
+    
+});  
