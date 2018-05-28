@@ -61,10 +61,6 @@ $(window).ready(function(){
 
 //倒计时逻辑代码
     var timerP2=document.getElementById("p-text-center");
-    // console.log(timerP2);
-    // timerP2.innerHTML=1;
-    // alert(timerP2.innerHTML);
-    // var springFestival=new Date(2018,1,16,0,0,0);
     var memory=new Date(2017,5,29,0,0,0);
     var surplusDays;
     var surplusHours;
@@ -76,43 +72,29 @@ $(window).ready(function(){
     var tChildArr=timerP2.childNodes;
     var now;
     
-    // var springFestivalTime;
-    // 年月日
     function updateTimer() {
         now=new Date();
         nowTime=now.getTime();
-        // springFestivalTime=springFestival.getTime();
         memoryTime=memory.getTime();
         nowYear=now.getUTCFullYear();
-        // console.log(nowTime);
-        // console.log(springFestivalTime);
-        // var nowString=now.toLocaleDateString();
-        // console.log(nowString);
         surplusDays=parseInt((nowTime-memoryTime)/(1000*60*60*24));
-        // console.log(surplusDays);
         surplusHours=parseInt((((nowTime-memoryTime)-(surplusDays*1000*60*60*24))/(1000*60*60)));
-        // console.log(surplusHours);
         surplusMinutes=parseInt(((nowTime-memoryTime)-(surplusDays*24*60*60*1000)-(surplusHours*60*60*1000))/(1000*60));
-        // console.log(surplusMinutes);
         surplusSeconds=parseInt(((nowTime-memoryTime)-(surplusDays*24*60*60*1000)-(surplusHours*60*60*1000)-(surplusMinutes*60*1000))/(1000));
-        //console.log(surplusSeconds);
         surplusMs=parseInt(((nowTime-memoryTime)-(surplusDays*24*60*60*1000)-(surplusHours*60*60*1000)-(surplusMinutes*60*1000)-(surplusSeconds*1000))/(1));
-        // console.log(surplusMs);
+
         if(surplusMs<10){
             surplusMs=surplusMs+"00";
         }else if(surplusMs<100)
         {
             surplusMs=surplusMs+"0";
         }
-        // timerP2.innerHTML= surplusDays+"天"+surplusHours+"小时"+surplusMinutes+"分钟"+(surplusSeconds+1)+"秒"+"</p>";
         
         tChildArr[0].innerHTML=(surplusDays+1)+"天";
         tChildArr[1].innerHTML=(surplusHours+1)+"小时";
         tChildArr[2].innerHTML=(surplusMinutes+1)+"分钟";
         tChildArr[3].innerHTML=(surplusSeconds+1)+"秒";
-        // console.log(tChildArr);
-
-        // console.log(1);
+        
     }
     updateTimer();
 
@@ -141,9 +123,9 @@ $(window).ready(function(){
         
 
             // 确保各界面宽高与页面大小一致
-            $("#r-container").css("height",h-50);
+            $("#r-container").css("height",h-40);
             $("#r-container").css("width",w);
-            $("#b-container").css("height",h-50);
+            $("#b-container").css("height",h-40);
             $("#b-container").css("width",w);
             
         });

@@ -17,9 +17,9 @@ body,html{
 	overflow: hidden;
 }
 .p-container{
-	/* background-image:url('../img/paper.jpg'); */
+	background-image:url('../img/paper.jpg');
 	position: absolute;
-	padding-top: 50px;
+	padding-top: 40px;
 	top: 0;
 	right: 0;
 	bottom: 0;
@@ -27,11 +27,14 @@ body,html{
 	margin-left: 0;
 	/* transform:  translateX(-100%); */
 	transition: all 1s;
+	background-color: #e9e9e9;
 
 }
 #p-time{
+	display: none;
+	height: 0;
 	position: relative;
-	height: 65%;
+	/* height: 65%; */
 	width: 100%;
 		/* opacity: 0.7; */
 	/* background-color: #ccc; */
@@ -46,7 +49,7 @@ body,html{
 #time-header{
 	position: fixed;
 	top: 0;
-	height: 50px;
+	height: 40px;
 	width: 100%;
 	display: flex;
 	justify-content: space-around;
@@ -65,7 +68,7 @@ body,html{
 	width: 35%;
 	height: 100%;
 	/* box-sizing: border-box; */
-	border: 1px solid #e2e2e2;
+	/* border: 1px solid #e2e2e2; */
 	/* box-shadow:0 0 1px 1px rgba(0,0,0,.6) inset; */
 	color: #222;
 	letter-spacing: 1px;
@@ -171,10 +174,11 @@ body,html{
 	animation-duration: 1s;
 }
 
-
+/* 底部图标 */
 #p-bottom{
+	position: absolute;
 	display: relative;
-
+	bottom: 0;
 	height: 35%;
 	/* background-color: red; */
 	display: flex;
@@ -383,4 +387,49 @@ body,html{
         -webkit-transform: rotate(360deg);
         transform: rotate(360deg);
     }
+}
+
+/* 圆角矩形组件 */
+.p-section-container{
+	display: flex;
+	justify-content: center;
+	-ms-align-items: center;
+	/* align-items: center; */
+	flex-direction: column;
+	width: 100%;
+	padding: 10px 0;
+	color: #444;
+}
+.p-section-container div:first-child {
+	border-radius: 6px 6px 0 0;
+}
+.p-section-container div:last-child {
+	border-radius:0 0 6px 6px ;
+}
+.center{
+	display: flex;
+	justify-content: center;
+	-ms-align-items: center;
+	align-items: center;
+	text-indent: 0 !important;
+}
+.p-section-single{
+	margin: 10px auto;
+	background-color: #fefefe;
+	width: 90%;
+	height: 60px;
+	border-radius: 6px !important;
+	box-shadow:0px 1px 3px rgba(0,0,0,.2);
+}
+.p-section{
+
+	width: 90%;
+	height: 60px;
+	display: flex;
+	-ms-align-items: center;
+	align-items: center;
+	margin: 0 auto;
+	background-color: #fefefe;
+	box-shadow:0px 1px 3px rgba(0,0,0,.2);
+	 text-indent:20px;
 }
