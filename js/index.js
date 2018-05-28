@@ -1,3 +1,13 @@
+//定义变量
+    var sendbox=document.getElementById('sendbox');
+    var h=window.innerHeight||document.body.clientHeight||document.documentElement.clientHeight;
+    var w=window.innerWidth||document.body.clientWidth||document.documentElement.clientWidth;
+
+// loading事件
+$(window).ready(function(){  
+    $("#loading").css("opacity",0);
+    setTimeout(function(){ $("#loading").css("display","none");}, 1000);
+
 
     
 
@@ -123,9 +133,7 @@
     
 
     //设置记录页面宽高
-    var sendbox=document.getElementById('sendbox');
-    var h=window.innerHeight||document.body.clientHeight||document.documentElement.clientHeight;
-    var w=window.innerWidth||document.body.clientWidth||document.documentElement.clientWidth;
+    
     // console.log(w);
     $(window).on("load resize",function(){
       
@@ -140,25 +148,24 @@
             
         });
 
-    $(window).on(" resize",function(){
-     sendbox.scrollIntoView(false); // Boolean型参数 
+
+// 处理输入框错位问题
+    var send=document.getElementById("send");
+
+    $("#send").focus(function(){
+        // window.scrollTo(0,50);
+        send.scrollIntoView(true);
+        console.log("1");
     });
-
-
-    // 处理输入框错位问题
-    // $("#send").focus(function(){
-    //      $("#sendbox").addClass("send-bottom");
-    //      console.log("1");
-    // });
-    // $("#send").blur(function(){
-    //      $("#sendbox").removeClass("send-bottom");
-    //      console.log("1");
-    // })
+    $("#send").blur(function(){
+         $("#sendbox").removeClass("send-bottom");
+         console.log("1");
+    })
  
 
-// 滑屏事件处理
+// 滑屏、滑动、点击换屏事件处理
 
-    // 当前屏幕所在
+    // 当前屏幕所在位置
     var screenState=1;
 
     var container = document.getElementsByClassName("p-container")[0];
@@ -166,6 +173,30 @@
     var mc = new Hammer.Manager(container);
     Swipe = new Hammer.Swipe();
     mc.add(Swipe);
+
+// 顶部time-header点击事件绑定
+    var topNavArr=document.getElementById('time-header').getElementsByTagName('a');
+    topNavArr[0].onclick=function(){
+        $(".p-container").css('transform','translateX('+(0)+'px)');
+        screenState=1;    
+        changeHeader();
+    }
+    topNavArr[1].onclick=function(){
+        $(".p-container").css('transform','translateX('+(-w)+'px)');
+        screenState=2;    
+        changeHeader();
+    }
+    topNavArr[2].onclick=function(){
+        $(".p-container").css('transform','translateX('+(-2*w)+'px)');
+        screenState=3;    
+        changeHeader();
+    }
+
+    // topNavArr[0].click(function() {
+        // $(".p-container").css('transform','translateX('+(0)+'px)');
+    //     screenState=1;    
+    // });
+
     mc.on('swipeleft', function (ev,fn) {
         if(screenState==2){
             $(".p-container").css('transform','translateX('+(-2*w)+'px)');
@@ -192,7 +223,7 @@
 
     // changeHeader();
     window.changeHeader=function changeHeader(){
-        $('#time-header').children("a").eq((screenState-1)).css("color", "#000").siblings().css("color", "#333");;
+        $('#time-header').children("a").eq((screenState-1)).addClass("active").siblings().removeClass("active");;
         
         
         // console.log(1);
@@ -224,10 +255,4 @@
         // console.log(textOArr.sites[1].name);
         // $(".chat-list-container")[0].scrollTop=$(".chat-list-container")[0].scrollHeight; //确保滚动条的位置
     }
-
-// loading事件
-$(window).ready(function(){  
-    $("#loading").css("opacity",0);
-    setTimeout(function(){ $("#loading").css("display","none");}, 1000);
-
 });  
