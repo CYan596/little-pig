@@ -211,7 +211,10 @@ $(window).load(function(){
 
 
 
-// 按压事件处理
+//按压事件处理与优化
+    // 全局绑定touch事件
+    document.body.addEventListener('touchstart', function () { });
+
     
     
     
