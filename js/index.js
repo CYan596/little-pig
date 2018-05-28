@@ -123,18 +123,14 @@
     
 
     //设置记录页面宽高
+    var sendbox=document.getElementById('sendbox');
     var h=window.innerHeight||document.body.clientHeight||document.documentElement.clientHeight;
     var w=window.innerWidth||document.body.clientWidth||document.documentElement.clientWidth;
     // console.log(w);
     $(window).on("load resize",function(){
       
         // 适配overflow：hidden造成的输入框错位问题
-      if (document.activeElement.tagName == "INPUT" || document.activeElement.tagName == "TEXTAREA") {
-            setTimeout(function () {
-                var top = document.activeElement.getBoundingClientRect().top;
-                window.scrollTo(0,top);
-            }, 0);
-        }
+        
 
             // 确保各界面宽高与页面大小一致
             $("#r-container").css("height",h-50);
@@ -143,6 +139,11 @@
             $("#b-container").css("width",w);
             
         });
+
+    $(window).on(" resize",function(){
+     sendbox.scrollIntoView(false); // Boolean型参数 
+    });
+
 
     // 处理输入框错位问题
     // $("#send").focus(function(){
@@ -228,4 +229,5 @@
 $(window).ready(function(){  
     $("#loading").css("opacity",0);
     setTimeout(function(){ $("#loading").css("display","none");}, 1000);
+
 });  
