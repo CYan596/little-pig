@@ -186,6 +186,7 @@ body,html{
 	-ms-align-items: center;
 	align-items: center;
 	width: 100%;
+	/* z-index: -1; */
 	/* background:linear-gradient(to bottom, #fff, #eee); */
 	
 }
