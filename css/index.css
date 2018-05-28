@@ -17,7 +17,7 @@ body,html{
 	overflow: hidden;
 }
 .p-container{
-	background-image:url('../img/paper.jpg');
+	/* background-image:url('../img/paper.jpg'); */
 	position: absolute;
 	padding-top: 40px;
 	top: 0;
@@ -28,7 +28,7 @@ body,html{
 	/* transform:  translateX(-100%); */
 	transition: all 1s;
 	background-color: #e9e9e9;
-
+	overflow-y: auto;
 }
 #p-time{
 	display: none;
@@ -240,6 +240,7 @@ body,html{
 	position: absolute;
 	/* background-color: red; */
 
+	background-color:#e9e9e9;
 	/* margin-left: 100%; */
 }
 #sendbox{
@@ -288,7 +289,7 @@ body,html{
 #b-container{
 	position: absolute;
 	transform:  translateX(100%);
-	background-color:#ccc;
+	background-color:#e9e9e9;
 }
 
 /* 第二屏 */
