@@ -127,9 +127,16 @@
     var w=window.innerWidth||document.body.clientWidth||document.documentElement.clientWidth;
     // console.log(w);
     $(window).on("load resize",function(){
-           
+      
+        // 适配overflow：hidden造成的输入框错位问题
+      if (document.activeElement.tagName == "INPUT" || document.activeElement.tagName == "TEXTAREA") {
+            setTimeout(function () {
+                var top = document.activeElement.getBoundingClientRect().top;
+                window.scrollTo(0,top);
+            }, 0);
+        }
 
-            // console.log(h);
+            // 确保各界面宽高与页面大小一致
             $("#r-container").css("height",h-50);
             $("#r-container").css("width",w);
             $("#b-container").css("height",h-50);
