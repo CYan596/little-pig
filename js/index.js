@@ -4,7 +4,7 @@
     var w=window.innerWidth||document.body.clientWidth||document.documentElement.clientWidth;
 
 // loading事件
-$(window).ready(function(){  
+$(window).load(function(){  
     $("#loading").css("opacity",0);
     setTimeout(function(){ $("#loading").css("display","none");}, 1000);
 
@@ -117,7 +117,7 @@ $(window).ready(function(){
     //设置记录页面宽高
     
     // console.log(w);
-    $(window).on("load resize",function(){
+    // $(window).on("load resize",function(){
       
         // 适配overflow：hidden造成的输入框错位问题
         
@@ -128,7 +128,7 @@ $(window).ready(function(){
             $("#b-container").css("height",h-40);
             $("#b-container").css("width",w);
             
-        });
+        // });
 
 
 // 处理输入框错位问题
@@ -179,7 +179,7 @@ $(window).ready(function(){
     //     screenState=1;    
     // });
 
-    mc.on('swipeleft', function (ev,fn) {
+    mc.on('swipeleft', function (ev) {
         if(screenState==2){
             $(".p-container").css('transform','translateX('+(-2*w)+'px)');
             screenState++;
@@ -191,7 +191,7 @@ $(window).ready(function(){
         };
         window.changeHeader();
     });
-    mc.on('swiperight', function (ev,changeHeader) {
+    mc.on('swiperight', function (ev) {
         if(screenState==2){
             $(".p-container").css('transform','translateX('+(0)+'px)');
             screenState--;
@@ -203,16 +203,19 @@ $(window).ready(function(){
         window.changeHeader();
     });
 
-    // changeHeader();
+    // 根据当前页面状态确认
     window.changeHeader=function changeHeader(){
         $('#time-header').children("a").eq((screenState-1)).addClass("active").siblings().removeClass("active");;
-        
-        
-        // console.log(1);
     }
-
     var tJson='{"name":"2323","sex":"afasdf","age":"6262"}';//json示例字符串
-    // console.log(tJson);
+
+
+
+// 按压事件处理
+    
+    
+    
+
 
 // 二屏留言渲染 r
 
