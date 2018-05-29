@@ -8,7 +8,9 @@ $(window).load(function(){
     $("#loading").css("opacity",0);
     setTimeout(function(){ $("#loading").css("display","none");}, 1000);
 
-
+    if(w>700){
+        alert("未对桌面设备优化，请使用移动设备访问  ");
+    }
     
 
 // 初始化Bmob数据服务
