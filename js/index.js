@@ -98,12 +98,12 @@ $(window).load(function(){
     }
     updateTimer();
 
-    var textNow=document.getElementById("p-text").firstChild;
+    // var textNow=document.getElementById("p-text").firstChild;
     // console.log(textNow);
 
-    var now=new Date();
-    textNow.innerHTML='今天是'+now.getUTCFullYear()+'年'+(now.getMonth()+1)+'月'+now.getUTCDate()+'日';
-    var windowTimer = window.setInterval(updateTimer,1000);
+    // var now=new Date();
+    // textNow.innerHTML='今天是'+now.getUTCFullYear()+'年'+(now.getMonth()+1)+'月'+now.getUTCDate()+'日';
+    // var windowTimer = window.setInterval(updateTimer,1000);
 
 
     // 底部文字数组
