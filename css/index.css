@@ -254,6 +254,22 @@ body,html{
 	bottom:0;
 	background-color: #fafafa;
 }
+.r-diary-wrap{
+	/* margin-top: 20px; */
+	height:120px;
+}
+#r-diary{
+	width: 85%;
+	height: 80%;
+	padding: 10px;
+	border-radius: 6px;
+}
+.section-title{
+	color: #909094;
+	margin-top: 10px;
+	margin-bottom: 6px;
+	text-indent: 30px;
+}
 /* #sendbox input{
 	height: 34px;
 	text-indent: 20px;
@@ -264,7 +280,7 @@ body,html{
 	border: none;
 	background-color: #f4f4f4;
 } */
-#sendbox button{
+/* #sendbox button{
 	border-radius: 8px;
 	border: none;
 	height: 36px;
@@ -281,7 +297,7 @@ body,html{
 	border-radius: 8px;
 	border: none;
 	background-color: #f4f4f4;
-}
+} */
 .wrap{
 	height: 100%;
 	width: 100%;
@@ -293,7 +309,6 @@ body,html{
 	background-color:#e9e9e9;
 }
 
-/* 第二屏 */
 /* 信息展示框 */
 #r-messageContainer{
 	height: 100%;
@@ -409,14 +424,20 @@ body,html{
 .p-section-container div:last-child {
 	border-radius:0 0 6px 6px ;
 }
+
 .center{
 	display: flex;
 	justify-content: center;
 	-ms-align-items: center;
 	align-items: center;
-	text-indent: 0 !important;
+
 }
+.center p{	text-indent: 0 !important;}
+
 .p-section-single{
+	display: flex;
+	-ms-align-items: center;
+	align-items: center;
 	margin: 10px auto;
 	background-color: #fefefe;
 	width: 90%;
@@ -434,11 +455,13 @@ body,html{
 	margin: 0 auto;
 	background-color: #fefefe;
 	box-shadow:0px 1px 3px rgba(0,0,0,.2);
- 	text-indent:20px;
-   	animation-duration: 2s;    /*//动画持续时间*/
-    
-       
+ 	
+   	animation-duration: 2s;    /*//动画持续时间*/ 
 }
+.p-section-single p,.p-section p{
+	text-indent:20px;
+}
+
 /* .p-section:hover{
 	background-color: red;
 } */
@@ -447,3 +470,9 @@ body,html{
 	-webkit-tap-highlight-color:transparent;
 		box-shadow:0 0 6px 0px rgba(0,0,0,.4) inset;
 }
+.p-section-single:active {
+	background:linear-gradient(to bottom, #c6c9c9, #d6d6d9);
+	-webkit-tap-highlight-color:transparent;
+		box-shadow:0 0 6px 0px rgba(0,0,0,.4) inset;
+}
+
