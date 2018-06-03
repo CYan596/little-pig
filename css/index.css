@@ -224,7 +224,7 @@ body,html{
 	animation-duration: 3.5s;
 }
 
-/* 第二个页面 */
+/* 第二屏 */
 #p-hook{
 	position: relative;
 	right: 0;
@@ -346,6 +346,48 @@ body,html{
 .send-bottom{
 	top: 20%;
 }
+
+/* Begin 第二屏操作区域 */
+	/* 日记保存后的+1动效 */
+#myDiary{
+
+    /* transition: all 2s; */
+
+}
+#myDiary::after{
+	/* display: none; */
+	position: relative;
+	color: #9dafd9;
+	width: 0;
+	content: '+1';
+	/* width: 10px; */
+	/* height: 10px; */
+	/* background-color: red ; */
+	transform:translateY(10px);
+	opacity: 1;
+	z-index: -1;
+    /* transition: all 2s ease-out; */
+}
+#myDiary.foo::after{
+	/* display: block; */
+	width: 0;
+	position: relative;
+
+	left: 0;
+	content: '+1';
+	/* width: 10px; */
+	/* height: 10px; */
+	/* background-color: red ; */
+	transform:translateY(-80px);
+	/* opacity: 0; */
+	z-index: 1;
+	color: #9dafd9;
+    transition: all 1.2s ease-out;
+}
+		
+/* Eed   第二屏操作区域 */
+
+
 /* 缓冲遮罩 */
 
  #loading{

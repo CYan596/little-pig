@@ -1,8 +1,20 @@
+//begin
+
+//end  
+
 //定义变量
     var sendbox=document.getElementById('sendbox');
     var h=window.innerHeight||document.body.clientHeight||document.documentElement.clientHeight;
     var w=window.innerWidth||document.body.clientWidth||document.documentElement.clientWidth;
-
+    var diaryEditArea=document.getElementById('r-diary');
+    var keepDiaryBtn=document.getElementById('keepDiaryBtn');
+    var diaryData=[];   //日记数据临时存储数组 
+    var timeData=[];    //日记时间数据临时存储数组
+    // console.log(keepDiaryBtn);
+    var myDiary=document.getElementById('myDiary');
+    var rContainer=document.getElementById('r-container');
+    var myDiaryState=false; //我的日记窗口，打开与关闭状态 
+    var display=document.getElementById('display');
 // loading事件
 $(window).load(function(){  
     $("#loading").css("opacity",0);
@@ -58,12 +70,47 @@ $(window).load(function(){
 
     // console.log(messageData);
 
+//begin 时间处理逻辑
+
+    // 时间处理函数
+    // 参数为Date对象，输出样例：2018-5-27 15:35:21
+    // function transformTime(now){
+    //     return((now.getUTCFullYear()+1)+'-'+(now.getMonth()+1)+'-'+now.getUTCDate()+'日');
+    // }
+
+    // 日期转换函数
+    
+
+    Date.prototype.format = function(fmt) { 
+        var o = { 
+            "M+" : this.getMonth()+1,                 //月份 
+            "d+" : this.getDate(),                    //日 
+            "h+" : this.getHours(),                   //小时 
+            "m+" : this.getMinutes(),                 //分 
+            "s+" : this.getSeconds(),                 //秒 
+            "q+" : Math.floor((this.getMonth()+3)/3), //季度 
+            "S"  : this.getMilliseconds()             //毫秒 
+        }; 
+        if(/(y+)/.test(fmt)) {
+                fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length)); 
+        }
+         for(var k in o) {
+            if(new RegExp("("+ k +")").test(fmt)){
+                 fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
+             }
+         }
+    return fmt; 
+    }      
+
+
+//end   时间处理逻辑
+
 
 
 
 //倒计时逻辑代码
     var timerP2=document.getElementById("p-text-center");
-    var memory=new Date(2017,5,29,0,0,0);
+    var memory=new Date();
     var surplusDays;
     var surplusHours;
     var surplusMinutes;
@@ -74,31 +121,31 @@ $(window).load(function(){
     var tChildArr=timerP2.childNodes;
     var now;
     
-    function updateTimer() {
-        now=new Date();
-        nowTime=now.getTime();
-        memoryTime=memory.getTime();
-        nowYear=now.getUTCFullYear();
-        surplusDays=parseInt((nowTime-memoryTime)/(1000*60*60*24));
-        surplusHours=parseInt((((nowTime-memoryTime)-(surplusDays*1000*60*60*24))/(1000*60*60)));
-        surplusMinutes=parseInt(((nowTime-memoryTime)-(surplusDays*24*60*60*1000)-(surplusHours*60*60*1000))/(1000*60));
-        surplusSeconds=parseInt(((nowTime-memoryTime)-(surplusDays*24*60*60*1000)-(surplusHours*60*60*1000)-(surplusMinutes*60*1000))/(1000));
-        surplusMs=parseInt(((nowTime-memoryTime)-(surplusDays*24*60*60*1000)-(surplusHours*60*60*1000)-(surplusMinutes*60*1000)-(surplusSeconds*1000))/(1));
+    // function updateTimer() {
+    //     now=new Date();
+    //     nowTime=now.getTime();
+    //     memoryTime=0;
+    //     nowYear=now.getUTCFullYear();
+    //     surplusDays=parseInt((nowTime-memoryTime)/(1000*60*60*24));
+    //     surplusHours=parseInt((((nowTime-memoryTime)-(surplusDays*1000*60*60*24))/(1000*60*60)));
+    //     surplusMinutes=parseInt(((nowTime-memoryTime)-(surplusDays*24*60*60*1000)-(surplusHours*60*60*1000))/(1000*60));
+    //     surplusSeconds=parseInt(((nowTime-memoryTime)-(surplusDays*24*60*60*1000)-(surplusHours*60*60*1000)-(surplusMinutes*60*1000))/(1000));
+    //     surplusMs=parseInt(((nowTime-memoryTime)-(surplusDays*24*60*60*1000)-(surplusHours*60*60*1000)-(surplusMinutes*60*1000)-(surplusSeconds*1000))/(1));
 
-        if(surplusMs<10){
-            surplusMs=surplusMs+"00";
-        }else if(surplusMs<100)
-        {
-            surplusMs=surplusMs+"0";
-        }
+        // if(surplusMs<10){
+        //     surplusMs=surplusMs+"00";
+        // }else if(surplusMs<100)
+        // {
+        //     surplusMs=surplusMs+"0";
+        // }
         
-        tChildArr[0].innerHTML=(surplusDays+1)+"天";
-        tChildArr[1].innerHTML=(surplusHours+1)+"小时";
-        tChildArr[2].innerHTML=(surplusMinutes+1)+"分钟";
-        tChildArr[3].innerHTML=(surplusSeconds+1)+"秒";
-        
-    }
-    updateTimer();
+        // tChildArr[0].innerHTML=(surplusDays+1)+"天";
+        // tChildArr[1].innerHTML=(surplusHours+1)+"小时";
+        // tChildArr[2].innerHTML=(surplusMinutes+1)+"分钟";
+        // tChildArr[3].innerHTML=(surplusSeconds+1)+"秒";
+    //     return(nowYear+'-'+surplusMs+'-'+surplusDays+' '+surplusHours+':'+surplusMinutes+':'+surplusSeconds);
+    // }
+    // console.log(updateTimer());
 
     // var textNow=document.getElementById("p-text").firstChild;
     // console.log(textNow);
@@ -108,12 +155,6 @@ $(window).load(function(){
     // var windowTimer = window.setInterval(updateTimer,1000);
 
 
-    // 底部文字数组
-    var textArr=[
-        '年轻的时候我以为钱就是一切，现在老了才知道，确实如此。',
-        '你最可爱',
-        '请问阁下是叫有容吗？'
-    ];
     
 
     //设置记录页面宽高
@@ -213,16 +254,77 @@ $(window).load(function(){
 
 
 
-//按压事件处理与优化
+//begin 按压事件处理与优化
     // 全局绑定touch事件
     document.body.addEventListener('touchstart', function () { });
-
-    
-    
-    
+//end 按压事件处理与优化
 
 
-// 二屏留言渲染 r
+// begin 日记编辑与保存按钮逻辑
+    // 保存按钮点击事件
+    keepDiaryBtn.onclick=function() {
+        // 保存逻辑
+            //不为空则保存到数组中
+        if(diaryEditArea.value!==""){
+            // 保存日记字段数据
+            diaryData.push(diaryEditArea.value);
+            // 保存日记时间数据
+            let time=new Date().format("yyyy-MM-dd hh:mm:ss");
+            timeData.push(time);
+        }
+        // console.log(diaryData);
+        // console.log(timeData);
+        diaryEditArea.value="";
+
+        // +1动效
+        $('#myDiary').addClass("foo");
+        setTimeout(function(){
+            $('#myDiary').removeClass("foo");
+        },1500)
+
+    }
+
+// end   日记编辑与保存按钮逻辑
+
+
+//Begin 我的日记展示逻辑
+    // 1、点击我的日记
+    // 2、其他按钮隐藏
+    // 3、由下至上动效展示日记
+    var $display=$(display);
+    myDiary.onclick=function(){
+       
+        // $(rContainer).append('<div id="display"></div>');
+        
+        if(!myDiaryState){
+            $(myDiary).siblings().hide(400).end().parent().siblings().hide(800);
+            $display.show(800);
+            for(let i=0;i<diaryData.length;i++){
+                $display.append('<div class="r-content"><p>'+timeData[i]+'</p><p>'+diaryData[i]+'</p></div>');
+            }
+            myDiaryState=!myDiaryState;
+        }else {
+            
+            $display.children().remove();    
+            $(myDiary).siblings().show(800).end().parent().siblings().show(800);
+            myDiaryState=!myDiaryState;
+        }
+
+      
+    }
+
+    
+//End   我的日记展示逻辑
+
+
+
+
+    
+//begin
+
+//end  
+
+//二屏留言渲染
 
     //参数：数组 第一项为时间，第二项为信息
     //引擎：把传入的数组渲染后添加到第二屏中
@@ -233,7 +335,7 @@ $(window).load(function(){
         // console.log(textOArr.chats.length);
         // $(".chat-list-wrap").empty();
 
-        for(var i=0;i<2;i++){
+        // for(var i=0;i<2;i++){
 
             // $(".chat-list-wrap").append("<div class=\"chat-list-line\"><p class=\"line-p1\">"+textOArr.chats[i].name+" "+textOArr.chats[i].time+"</p><p class=\"line-p2\">"+" "+textOArr.chats[i].said+"</p></div>");
             //如果当前信息是该客户端用户所发，添加类line-mine
@@ -241,7 +343,7 @@ $(window).load(function(){
             //     $('.chat-list-line:last').addClass("line-mine");
             // }
 
-        }
+        // }
         // console.log(textOArr.sites[1].name);
         // $(".chat-list-container")[0].scrollTop=$(".chat-list-container")[0].scrollHeight; //确保滚动条的位置
     }

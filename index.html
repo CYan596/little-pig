@@ -44,16 +44,23 @@
 					<textarea name="" id="r-diary" cols="30" rows="10"></textarea>
 				</div>
 
-				<!-- 操作按钮 -->
+				<!--begin 操作区域 -->
 				<div class="p-section-container">
-					<div class="p-section center p-section-center">
-						<p><span class=" fa fa-save "></span>保存日记</p>
+					<div class="p-section center p-section-center" id="keepDiaryBtn">
+						<p><span class=" fa fa-save " ></span>保存日记</p>
+					</div>
+					<div class="p-section center p-section-center" id="myDiary">
+						<p><span class="fa fa-book " ></span>我的日记</p>
 					</div>
 					<div class="p-section center p-section-center">
-						<p><span class="fa fa-book "></span>我的日记</p>
+						<p><span class="fa fa-th-list "></span>管理日记本</p>
 					</div>
-				</div>
 
+					
+				</div>
+				<!--end 操作区域 -->
+				
+				<div id="display"></div>
 			</div>
 
 			<!-- 第三屏 -->
@@ -91,7 +98,7 @@
 				</div>
 
 				<div id="p-bottom " class="center">	
-					<div id="author" class="">
+					<div id="author" class="">	
 						<img src="img/png/icon-left-font-monochrome-black.png" alt="icon" width="130px">
 					</div>
 				</div>
@@ -113,8 +120,8 @@
 				<div id="r-messageContainer">
 
 					<div class="section-title">
-						<span class="fa fa-circle-o-notch fa-spin"></span>
-					日记广场</div>
+						<span class="fa fa-circle-o-notch fa-spin"></span>日记广场
+					</div>
 					<div class="r-content">
 						<p>2018-5-27 15:07:20</p>
 						<p>唉，自从我们在一起之后，每晚都出去吃烧烤，我啤酒肚都吃出来了……</p>
