@@ -539,3 +539,49 @@ body,html{
   -moz-border-radius: 5px;
   border-radius: 5px;
 }
+
+/*Begin 第三屏 */
+
+/*Begin 登陆面板 */
+#loginPanel{
+	display: none;
+	margin: 0px auto;
+	width: 90%;
+	display: flex;
+	/* height: 100px; */
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	color: #dcdcdc;
+}
+#loginPanel input{
+	display: none;
+	height: 58px;
+	width: 100%;
+	/* margin-left: 10px; */
+	/* border-radius: 6px; */
+	border: none;
+	box-shadow: 0px 1px 3px rgba(0,0,0,.2);
+	color: #dcdcdc;
+	text-indent:12px;
+	font-size: 16px;
+}
+#loginPanel input:focus{
+	border: none;
+	outline: none;
+}
+#loginPanel input:active{
+	border: none;
+}
+#loginPanel input:first-child {
+	border-radius: 6px 6px 0 0;
+}
+#loginPanel input:last-child {
+	border-radius:0 0 6px 6px ;
+}
+
+
+	
+/*End 登陆面板 */
+
+/*End 第三屏 */

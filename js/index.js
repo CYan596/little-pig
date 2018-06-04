@@ -15,6 +15,9 @@
     var rContainer=document.getElementById('r-container');
     var myDiaryState=false; //我的日记窗口，打开与关闭状态 
     var display=document.getElementById('display');
+    var $loginBtn=$('#loginBtn');
+    var $loginPanel=$('#loginPanel');
+    var loginPanelState=false;
 // loading事件
 $(window).load(function(){  
     $("#loading").css("opacity",0);
@@ -298,7 +301,7 @@ $(window).load(function(){
         
         if(!myDiaryState){
             $(myDiary).siblings().hide(400).end().parent().siblings().hide(800);
-            $display.show(800);
+            $display.show(400);
             for(let i=0;i<diaryData.length;i++){
                 $display.append('<div class="r-content"><p>'+timeData[i]+'</p><p>'+diaryData[i]+'</p></div>');
             }
@@ -318,11 +321,18 @@ $(window).load(function(){
 
 
 
-
     
-//begin
-
-//end  
+//Begin 登录逻辑
+    $loginBtn.on( "click", function() {
+        if (!loginPanelState) {
+            $loginPanel.children().show(400);
+            loginPanelState=!loginPanelState;
+        }else{
+             $loginPanel.children().hide(400);
+            loginPanelState=!loginPanelState;
+        }
+    });
+//end   登录逻辑
 
 //二屏留言渲染
 
