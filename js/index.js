@@ -18,6 +18,11 @@
     var $loginBtn=$('#loginBtn');
     var $loginPanel=$('#loginPanel');
     var loginPanelState=false;
+    var aboutState=false;
+    var $aboutBtn=$('#aboutBtn');
+    // var 
+    var $feedBack=$('#feedBack');
+    var $display3=$('#display3'); //第三屏挂载点
 // loading事件
 $(window).load(function(){  
     $("#loading").css("opacity",0);
@@ -336,27 +341,42 @@ $(window).load(function(){
     });
 //end   登录逻辑
 
-//二屏留言渲染
 
-    //参数：数组 第一项为时间，第二项为信息
-    //引擎：把传入的数组渲染后添加到第二屏中
-    function rEngine(messageArr){
-        // console.log(Message);
-        // var t=JSON.parse('{"1": 1, "2": 2, "3": {"4": 4, "5": {"6": 6}}}');
+//Begin 问题反馈
+    $feedBack.on( "click", function() {
+        if (!aboutState) {
+            $feedBack.siblings().hide(400).end().parent().siblings().hide(800);
+            $display3.show(800);
+            aboutState=!aboutState;
+            $display3.append('<div id="about" class="center"><a href="mailto:cyan.zhukeqing@qq.com" data-no-instant="">发送邮件到©小猪科技</a></div>')
+        }else{
+            $feedBack.siblings().show(500).end().parent().siblings().show(600);
+            $display3.hide(800);
+            $display3.children().remove();    
+            aboutState=!aboutState;
+        }
+    });
         
-        // console.log(textOArr.chats.length);
-        // $(".chat-list-wrap").empty();
+//End   问题反馈
 
-        // for(var i=0;i<2;i++){
 
-            // $(".chat-list-wrap").append("<div class=\"chat-list-line\"><p class=\"line-p1\">"+textOArr.chats[i].name+" "+textOArr.chats[i].time+"</p><p class=\"line-p2\">"+" "+textOArr.chats[i].said+"</p></div>");
-            //如果当前信息是该客户端用户所发，添加类line-mine
-            // if(textOArr.chats[i].name==userName){
-            //     $('.chat-list-line:last').addClass("line-mine");
-            // }
+//Begin pig
+    // $aboutBtn.on( "click", function() {
+    //     if (!aboutState) {
+    //         $aboutBtn.siblings().hide(400).end().parent().siblings().hide(800);
+    //          $display3.show(800);
+    //           // $display3.show(800);
+    //         aboutState=!aboutState;
+    //     }else{
+    //         $aboutBtn.siblings().show(500).end().parent().siblings().show(600);
+    //         $display3.hide();
+    //         aboutState=!aboutState;
+    //     }
+    // });
 
-        // }
-        // console.log(textOArr.sites[1].name);
-        // $(".chat-list-container")[0].scrollTop=$(".chat-list-container")[0].scrollHeight; //确保滚动条的位置
-    }
-});  
+
+
+
+
+
+})
