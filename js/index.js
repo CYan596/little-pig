@@ -327,9 +327,11 @@ $(window).load(function(){
         if (!loginPanelState) {
             $loginPanel.children().show(400);
             loginPanelState=!loginPanelState;
+            $loginBtn.toggleClass('btnActive');
         }else{
              $loginPanel.children().hide(400);
             loginPanelState=!loginPanelState;
+             $loginBtn.toggleClass('btnActive');
         }
     });
 //end   登录逻辑
