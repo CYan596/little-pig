@@ -305,6 +305,8 @@ $(window).load(function(){
         // $(rContainer).append('<div id="display"></div>');
         
         if(!myDiaryState){
+            $(myDiary).children('p').children(".fa-chevron-up").removeClass('fa-chevron-up').addClass("fa-chevron-down");
+
             $(myDiary).siblings().hide(400).end().parent().siblings().hide(800);
             $display.show(400);
             for(let i=0;i<diaryData.length;i++){
@@ -312,6 +314,7 @@ $(window).load(function(){
             }
             myDiaryState=!myDiaryState;
         }else {
+            $(myDiary).children('p').children(".fa-chevron-down").removeClass('fa-chevron-down').addClass("fa-chevron-up");
             
             $display.children().remove();    
             $(myDiary).siblings().show(800).end().parent().siblings().show(800);
@@ -333,10 +336,14 @@ $(window).load(function(){
             $loginPanel.children().show(400);
             loginPanelState=!loginPanelState;
             $loginBtn.toggleClass('btnActive');
+            $loginBtn.children('p').children(".fa-chevron-up").removeClass('fa-chevron-up').addClass("fa-chevron-down");
+
         }else{
              $loginPanel.children().hide(400);
             loginPanelState=!loginPanelState;
              $loginBtn.toggleClass('btnActive');
+            $loginBtn.children('p').children(".fa-chevron-down").removeClass('fa-chevron-down').addClass("fa-chevron-up");
+
         }
     });
 //end   登录逻辑
@@ -349,9 +356,11 @@ $(window).load(function(){
             $display3.show(800);
             aboutState=!aboutState;
             $display3.append('<div id="about" class="center"><a href="mailto:cyan.zhukeqing@qq.com" data-no-instant="">发送邮件到©小猪科技</a></div>')
+            $feedBack.children('p').children(".fa-chevron-down").removeClass('fa-chevron-down').addClass("fa-chevron-up");
         }else{
             $feedBack.siblings().show(500).end().parent().siblings().show(600);
             $display3.hide(800);
+            $feedBack.children('p').children(".fa-chevron-up").removeClass('fa-chevron-up').addClass("fa-chevron-down");
             $display3.children().remove();    
             aboutState=!aboutState;
         }
