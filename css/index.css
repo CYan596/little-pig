@@ -222,7 +222,7 @@ body,html{
 	/* background-color: ; */
 	animation-delay:1.8s;
 	animation-duration: 3.5s;
-	z-index: 
+	z-index: -1;
 }
 
 /* 第二屏 */
