@@ -23,6 +23,8 @@
     // var 
     var $feedBack=$('#feedBack');
     var $display3=$('#display3'); //第三屏挂载点
+    var messageData;  //由服务器端获取到的数据
+    var $rMessageContainer=$('#r-messageContainer');
 // loading事件
 $(window).load(function(){  
     $("#loading").css("opacity",0);
@@ -33,8 +35,8 @@ $(window).load(function(){
     }
     
 
-// 初始化Bmob数据服务
-// Bmob数据存储测试
+//Begin Bmob数据服务
+    // Bmob数据存储测试
 
     Bmob.initialize("5fd1df2b91ff8b7a0987c2a05784a76c", "0b303f2990ad571937d2c980638a5a82");
     // 创建Bmob.Object子类
@@ -42,41 +44,86 @@ $(window).load(function(){
     // 创建该类的一个实例
     var testMessage = new TestMessage();
     // 添加数据，第一个入口参数是Json数据
-    // testMessage.save({
-    //   userMessage: 'hello',  
-    // }, {
-    //   success: function(gameScore) {
-    //     // 添加成功
-    //   },
-    //   error: function(gameScore, error) {
-    //     // 添加失败
-    //   }
-    // });
+   
 
-    var messageData=null;
+    // 数据保存
+    // 传入信息
+       
+    function saveData(message){
+        // testMessage.save({
+        //     userMessage: message,  
+        // }, {
+        //   success: function() {
+        //     console.log('添加成功')
+        //   },
+        //   error: function() {
+        //     console.log('添加失败')
+        //   }
+        // });
+         testMessage.save({
+          userMessage: message
+        }, {
+          success: function(gameScore) {
+            console.log('添加成功')
+          },
+          error: function(gameScore, error) {
+            console.log('添加失败')
+          }
+        });
+    }
 
-// Bmob数据查询测试
+
+    // Bmob数据查询测试
     var query = new Bmob.Query(TestMessage);
-    // 查询所有数据
-    // query.find({
-    //   success: function(results) {
-    //     console.log(results);
-    //     messageData=results;
-    //     // alert("共查询到 " + results.length + " 条记录");
-    //     // 循环渲染查询到的数据
-    //     for (var i = 0; i < results.length; i++) {
-    //       var object = results[i];
-    //       // alert(object.id + ' - ' + object.get('userMessage'));
+   
 
-    //     }
 
-    //   },
-    //   error: function(error) {
-    //     alert("查询失败: " + error.code + " " + error.message);
-    //   }
-    // });
+    
+//End Bmob数据服务
 
-    // console.log(messageData);
+//Begin  首屏轮询渲染
+    // 渲染函数
+    // 传入Bmob查询获取的数据
+    var firstScreenRenderTimer=setInterval(firstScreenRender,6000);
+    firstScreenRender();
+    function firstScreenRender(){
+
+        // 查询所有数据
+        query.find({
+            success: function(results) {
+            // console.log(results);
+            messageData=results;
+            console.log(messageData);
+            // alert("共查询到 " + results.length + " 条记录");
+            // 循环渲染查询到的数据
+            // for (var i = 0; i < results.length; i++) {
+            //   var object = results[i];
+            //   alert(object.id + ' - ' + object.get('userMessage'));
+
+            // }
+
+            // cloudData=results;
+            // var object = results[1];     
+            // console.log(object.get('userMessage')+' - '+object.createdAt);
+
+            $rMessageContainer.children().remove();
+            for(let i=0;i<messageData.length;i++){
+                let object = messageData[i];
+                $rMessageContainer.append('<div class="r-content"><p>'+object.createdAt+'</p><p>'+object.get('userMessage')+'</p></div>');
+                // alert(object.id + ' - ' + object.get('userMessage'));
+                console.log('111');
+            }
+
+          },
+          error: function(error) {
+            alert("查询失败: " + error.code + " " + error.message);
+          }
+        });
+
+           }
+
+
+//End    首屏轮询渲染  
 
 //begin 时间处理逻辑
 
@@ -279,6 +326,21 @@ $(window).load(function(){
             // 保存日记时间数据
             let time=new Date().format("yyyy-MM-dd hh:mm:ss");
             timeData.push(time);
+
+            // 上传信息至服务器
+            // saveData(diaryEditArea.value);
+            testMessage = new TestMessage();
+            testMessage.save({
+              userMessage: diaryEditArea.value
+            }, {
+              success: function(gameScore) {
+                console.log('添加成功')
+              },
+              error: function(gameScore, error) {
+                console.log('添加失败')
+              }
+            });
+            firstScreenRender();
         }
         // console.log(diaryData);
         // console.log(timeData);
@@ -315,7 +377,7 @@ $(window).load(function(){
             myDiaryState=!myDiaryState;
         }else {
             $(myDiary).children('p').children(".fa-chevron-down").removeClass('fa-chevron-down').addClass("fa-chevron-up");
-            
+
             $display.children().remove();    
             $(myDiary).siblings().show(800).end().parent().siblings().show(800);
             myDiaryState=!myDiaryState;
