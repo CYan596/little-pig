@@ -315,17 +315,27 @@ body,html{
 	z-index: -1;
 }
 .r-content{
-	margin: 10px auto;
-	width: 80%;
+	margin: 0 auto;
+	width: 90%;
 	/* height: 30px; */
-	color: #fff;
+	color: #111;
 	padding: 10px 10px;
-	background:linear-gradient(to bottom, #6f8dd4, #5878bd);
+	/* background:linear-gradient(to bottom, #6f8dd4, #5878bd); */
+	background-color: #fff;
+
 	
-	box-shadow:0 0 5px 1px rgba(0,0,0,.6) inset;
-	border-radius: 3px;
+	/* box-shadow:0 0 5px 1px rgba(0,0,0,.6) inset; */
+	border-bottom: 1px solid #ccc;
+	/* border-radius: 3px; */
 	opacity: 0.6;
 	/* transform:  translateX(-10%); */
+}
+/* 首尾圆角 */
+#r-messageContainer .r-content:first-child{
+	border-radius: 6px 6px 0 0;
+}
+#r-messageContainer .r-content:last-child{
+	border-radius: 0 0 6px 6px;
 }
 .r-content p:nth-child(1){
 	letter-spacing:1px;
