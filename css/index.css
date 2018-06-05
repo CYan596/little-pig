@@ -309,10 +309,11 @@ body,html{
 
 /* 信息展示框 */
 #r-messageContainer{
-	height: 100%;
+	height: 93%;
 	/* overflow-x: hidden; */
 	overflow-y: auto;
 	z-index: -1;
+	word-wrap:break-word;
 }
 .r-content{
 	margin: 0 auto;
