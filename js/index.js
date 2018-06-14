@@ -1,8 +1,14 @@
-//begin
+//Begin
 
-//end  
+//End  
 
 //定义变量
+    // 数据变量
+    var userName='username';
+
+    // dom变量
+    var $rMessageContainer=$("#r-messageContainer");
+
     var sendbox=document.getElementById('sendbox');
     var h=window.innerHeight||document.body.clientHeight||document.documentElement.clientHeight;
     var w=window.innerWidth||document.body.clientWidth||document.documentElement.clientWidth;
@@ -19,19 +25,22 @@
     var $loginPanel=$('#loginPanel');
     var loginPanelState=false;
     var aboutState=false;
+    var $about=$('#about');
     var $aboutBtn=$('#aboutBtn');
     // var 
     var $feedBack=$('#feedBack');
     var $display3=$('#display3'); //第三屏挂载点
-    var messageData;  //由服务器端获取到的数据
+    var messageData=[];  //由服务器端获取到的数据
     var $rMessageContainer=$('#r-messageContainer');
+
+    var stateObj={}; //状态对象
 // loading事件
 $(window).load(function(){  
     $("#loading").css("opacity",0);
     setTimeout(function(){ $("#loading").css("display","none");}, 1000);
 
     if(w>700){
-        alert("未对桌面设备优化，请使用移动设备访问  ");
+        //alert("未对桌面设备优化，请使用移动设备访问  ");  
     }
     
 
@@ -84,36 +93,33 @@ $(window).load(function(){
 //Begin  首屏轮询渲染
     // 渲染函数
     // 传入Bmob查询获取的数据
-    var firstScreenRenderTimer=setInterval(firstScreenRender,6000);
+    var firstScreenRenderTimer=setInterval(firstScreenRender,15000);
     firstScreenRender();
     function firstScreenRender(){
+        
 
         // 查询所有数据
         query.find({
+            
             success: function(results) {
-            // console.log(results);
-            messageData=results;
-            console.log(messageData);
-            // alert("共查询到 " + results.length + " 条记录");
-            // 循环渲染查询到的数据
-            // for (var i = 0; i < results.length; i++) {
-            //   var object = results[i];
-            //   alert(object.id + ' - ' + object.get('userMessage'));
-
-            // }
-
-            // cloudData=results;
-            // var object = results[1];     
-            // console.log(object.get('userMessage')+' - '+object.createdAt);
-
-            $rMessageContainer.children().remove();
-            for(let i=0;i<messageData.length;i++){
-                let object = messageData[i];
-                $rMessageContainer.append('<div class="r-content"><p>'+object.createdAt+'</p><p>'+object.get('userMessage')+'</p></div>');
-                // alert(object.id + ' - ' + object.get('userMessage'));
-                console.log('111');
+            
+            if(messageData.toString()===results.toString()){
+                
+               console.log('云端数据与本地数据相同')
             }
-
+            else{
+                $rMessageContainer.children().remove();
+                messageData=results;
+                for(let i=0;i<messageData.length;i++){
+                    let object = messageData[i];
+                    $rMessageContainer.append('<div class="r-content"><p>'+object.createdAt+'</p><p>'+object.get('userMessage')+'</p></div>');
+                    // alert(object.id + ' - ' + object.get('userMessage'));
+                    console.log(i);
+                }
+                return;
+            }
+            // console.log(messageData);
+          
           },
           error: function(error) {
             alert("查询失败: " + error.code + " " + error.message);
@@ -401,9 +407,9 @@ $(window).load(function(){
             $loginBtn.children('p').children(".fa-chevron-up").removeClass('fa-chevron-up').addClass("fa-chevron-down");
 
         }else{
-             $loginPanel.children().hide(400);
+            $loginPanel.children().hide(400);
             loginPanelState=!loginPanelState;
-             $loginBtn.toggleClass('btnActive');
+            $loginBtn.toggleClass('btnActive');
             $loginBtn.children('p').children(".fa-chevron-down").removeClass('fa-chevron-down').addClass("fa-chevron-up");
 
         }
@@ -414,37 +420,35 @@ $(window).load(function(){
 //Begin 问题反馈
     $feedBack.on( "click", function() {
         if (!aboutState) {
-            $feedBack.siblings().hide(400).end().parent().siblings().hide(800);
-            $display3.show(800);
+            // $feedBack.siblings().hide(400).end().parent().siblings().hide(800);
+            $about.children().show(400,'swing');
             aboutState=!aboutState;
-            $display3.append('<div id="about" class="center"><a href="mailto:cyan.zhukeqing@qq.com" data-no-instant="">发送邮件到©小猪科技</a></div>')
+            // $display3.append('<div id="about" class="center"><a href="mailto:cyan.zhukeqing@qq.com" data-no-instant="">发送邮件到©小猪科技</a></div>')
             $feedBack.children('p').children(".fa-chevron-down").removeClass('fa-chevron-down').addClass("fa-chevron-up");
         }else{
-            $feedBack.siblings().show(500).end().parent().siblings().show(600);
-            $display3.hide(800);
+            // $feedBack.siblings().show(500).end().parent().siblings().show(600);
+            // $display3.hide(800);
+            $about.children().hide(400,'linear');
             $feedBack.children('p').children(".fa-chevron-up").removeClass('fa-chevron-up').addClass("fa-chevron-down");
-            $display3.children().remove();    
+            // $display3.children().remove();    
             aboutState=!aboutState;
         }
-    });
-        
+    });    
 //End   问题反馈
 
+//Begin 设置与开发者入口
+    
+//end   设置与开发者入口
 
-//Begin pig
-    // $aboutBtn.on( "click", function() {
-    //     if (!aboutState) {
-    //         $aboutBtn.siblings().hide(400).end().parent().siblings().hide(800);
-    //          $display3.show(800);
-    //           // $display3.show(800);
-    //         aboutState=!aboutState;
-    //     }else{
-    //         $aboutBtn.siblings().show(500).end().parent().siblings().show(600);
-    //         $display3.hide();
-    //         aboutState=!aboutState;
-    //     }
-    // });
 
+/**
+ * 圆角矩形活动组件，隐藏操作函数，同时将箭头形态更换
+ *
+ * @param {object} ele 除ele外其它的本页圆角矩形隐藏.
+ */
+function HideOtherSection(ele,boo){
+    
+}
 
 
 
