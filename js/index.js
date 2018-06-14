@@ -32,16 +32,25 @@
     var $display3=$('#display3'); //第三屏挂载点
     var messageData=[];  //由服务器端获取到的数据
     var $rMessageContainer=$('#r-messageContainer');
+    var $more=$('#more');
+    var $pTextCenter=('#p-text-center');
 
-    var stateObj={}; //状态对象
+    var stateObj={
+        moreState:false,
+    }; //状态对象
 // loading事件
 $(window).load(function(){  
     $("#loading").css("opacity",0);
     setTimeout(function(){ $("#loading").css("display","none");}, 1000);
 
-    if(w>700){
-        //alert("未对桌面设备优化，请使用移动设备访问  ");  
-    }
+    // if(w>700){
+    //     alert("未对桌面设备优化，请使用移动设备访问  ");  
+    // }
+
+//Begin 页面进入时动画
+    $rMessageContainer.addClass('animated fadeInUp');
+
+//End   页面进入时动画
     
 
 //Begin Bmob数据服务
@@ -93,7 +102,7 @@ $(window).load(function(){
 //Begin  首屏轮询渲染
     // 渲染函数
     // 传入Bmob查询获取的数据
-    var firstScreenRenderTimer=setInterval(firstScreenRender,15000);
+    var firstScreenRenderTimer=setInterval(firstScreenRender,150000);
     firstScreenRender();
     function firstScreenRender(){
         
@@ -216,23 +225,26 @@ $(window).load(function(){
     // var windowTimer = window.setInterval(updateTimer,1000);
 
 
-    
+    $("#r-container").css("height",h-40);
+    $("#r-container").css("width",w);
+    $("#b-container").css("height",h-40);
+    $("#b-container").css("width",w);
 
     //设置记录页面宽高
     
-    // console.log(w);
-    // $(window).on("load resize",function(){
+    $(window).on("load resize",function(){
       
-        // 适配overflow：hidden造成的输入框错位问题
         
+        h=window.innerHeight||document.body.clientHeight||document.documentElement.clientHeight;
 
-            // 确保各界面宽高与页面大小一致
-            $("#r-container").css("height",h-40);
-            $("#r-container").css("width",w);
-            $("#b-container").css("height",h-40);
-            $("#b-container").css("width",w);
+        console.log(h);
+        // 确保各界面宽高与页面大小一致
+        $("#r-container").css("height",h-40);
+        // $("#r-container").css("width",w);
+        $("#b-container").css("height",h-40);
+        // $("#b-container").css("width",w);
             
-        // });
+    });
 
 
 // 处理输入框错位问题
@@ -436,9 +448,33 @@ $(window).load(function(){
     });    
 //End   问题反馈
 
-//Begin 设置与开发者入口
+//Begin share/donete
+     $more.on( "click", function() {
+        let moreState=stateObj.moreState;
+        if (!moreState) {
+            $more.siblings().hide(400).end().parent().siblings().not('#display3').hide(400);
+            // $display3.show(800);
+            $display3.children().show(800);
+            // $('#donate').children().show(800);
+
+
+            moreState=!moreState;
+            console.log(1);
+        }else{
+            $more.siblings().show(500).end().parent().siblings().show(600);
+            $display3.children().hide(400);
+            
+            moreState=!moreState;
+            console.log(2);
+
+        }
+        stateObj.moreState=moreState;
+    });
+//end   share/donete
+
+//Begin 更多 入口
     
-//end   设置与开发者入口
+//end   更多
 
 
 /**

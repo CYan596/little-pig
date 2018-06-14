@@ -486,7 +486,7 @@ body,html{
 	align-items: center;
 
 }
-.center p{	text-indent: 0 !important;}
+
 
 .p-section-single{
 	display: flex;
@@ -675,18 +675,32 @@ body,html{
     opacity: 0.6;
 }
 
+/*B 分享 捐赠*/
+#share,#donate{
+	/* display: none; */
+
+	/* margin: 0 auto; */
+	/* width: 50%; */
+}	
+/*E 分享 捐赠*/
+
 /* 第三屏挂载点 */
 #display3{
-	width: 90%;
-	margin: 0 auto;
+	/* width: 90%; */
+	/* margin: 0 auto; */
 
-	display: none;
-	text-align: center;
-	height: 60px;
-	box-shadow:0px 1px 3px rgba(0,0,0,.2);
+	display: block;
+	/* height: auto;
+	text-align: center; */
+	height: auto;
+	margin: 0 auto;
+/* 	box-shadow:0px 1px 3px rgba(0,0,0,.2);
 	background-color: #499500;
 	opacity: 0.6;
-	border-radius: 6px;
+	border-radius: 6px; */
+}
+#display3 .p-section-container{
+	display: none;
 }
 
 /*End 第三屏 */
