@@ -380,20 +380,16 @@ body,html{
     /* transition: all 2s; */
 
 }
-#myDiary::after{
-	/* display: none; */
+/* #myDiary::after{
 	position: relative;
 	color: #9dafd9;
 	width: 0;
 	content: '+1';
-	/* width: 10px; */
-	/* height: 10px; */
-	/* background-color: red ; */
+	
 	transform:translateY(10px);
 	opacity: 1;
 	z-index: -1;
-    /* transition: all 2s ease-out; */
-}
+} */
 #myDiary.foo::after{
 	/* display: block; */
 	width: 0;
@@ -704,3 +700,129 @@ body,html{
 }
 
 /*End 第三屏 */
+
+/*B 珠滑组件 */
+#bead{
+
+	position: fixed;
+	bottom: 10px;
+	margin-left: 50%;
+	
+
+	width: 35px;
+	height: 35px;
+	opacity: 0.6;
+	
+	transform-style:preserve-3d;
+	perspective-origin:50% 50% ;
+	transform: perspective(500px) translateX(-50%);
+}
+#bead .wrap{
+	position: relative;
+}
+#bead-inner{
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	/* background-color:#4759ae; */
+	opacity: 0.8;
+	border: 1px solid #ccc;
+	border-radius: 100%;
+	/* transform:rotateX(45deg) rotateY(45deg); */
+	/* transform: rotate(-20deg); */
+	border-color:#1921b1 #4d54d8 #7277d8 #080e73;
+}
+#bead-inner2{
+	/* border-radius: 100%; */
+	position: absolute;
+	top: 0;
+
+	width: 100%;
+	height: 100%;
+	border-radius: 100%;
+	border: 1px solid #ccc;
+	transition-delay: 0.5s;
+	opacity: 0.8;
+	border-color:#025167 #61b7cf #61b7cf #025167;
+}
+
+/*E 珠滑组件 */
+
+/*B  工具与动画类*/
+.p-rotate{
+	animation: 5.5s rotate1 linear  infinite;
+}
+.p-rotate2{
+	animation: 2.5s rotate2 linear  infinite;
+}
+/* .p-slide1{
+	animation: 4s p-slide1 linear  infinite;
+} */
+	/* 旋转动画 */
+
+@keyframes rotate1{
+    0%{
+    	opacity:0.3;
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	 	filter: blur(0px);
+    }
+    50%{
+    	opacity:1;
+		-webkit-transform: rotate(180deg);
+		transform: rotate(180deg);
+	 	/* filter: blur(2px); */
+    }
+    100%{
+    	opacity:0.3;
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	 	filter: blur(0px);
+    }
+}
+@keyframes rotate2{
+    0%{
+    	opacity:1;
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+    }
+    50%{
+    	opacity:0.3;
+		-webkit-transform: rotate(-180deg);
+		transform: rotate(-180deg);
+    }
+    100%{
+    	opacity:1;
+		-webkit-transform: rotate(-360deg);
+		transform: rotate(-360deg);
+    }
+}
+
+	/* 移动动画 */
+@keyframes p-slide1{
+    0%{
+		transform:  translate(-50%,-0px);
+		border-radius: 100%;
+		width: 37px;
+    }
+    50%{
+		border-radius: 100%;
+		transform:  translate(-50%,-60px);	
+		/* border-radius: 50%; */
+		width: 37px;
+    }
+ 	75%{
+		border-radius: 100%;
+		transform:  translate(-50%,-100px);	
+		/* border-radius: 50%; */
+		width: 37px;
+    }
+    100%{
+		transform:  translate(-50%,-120px);
+		border-radius: 10%;
+		width:77px;
+    }
+}	
+
+/*E  工具与动画类*/

@@ -236,13 +236,14 @@ $(window).load(function(){
       
         
         h=window.innerHeight||document.body.clientHeight||document.documentElement.clientHeight;
+        w=window.innerWidth||document.body.clientWidth||document.documentElement.clientWidth;
 
         console.log(h);
         // 确保各界面宽高与页面大小一致
         $("#r-container").css("height",h-40);
-        // $("#r-container").css("width",w);
+        $("#r-container").css("width",w);
         $("#b-container").css("height",h-40);
-        // $("#b-container").css("width",w);
+        $("#b-container").css("width",w);
             
     });
 
@@ -365,10 +366,10 @@ $(window).load(function(){
         diaryEditArea.value="";
 
         // +1动效
-        $('#myDiary').addClass("foo");
-        setTimeout(function(){
-            $('#myDiary').removeClass("foo");
-        },1500)
+        // $('#myDiary').addClass("foo");
+        // setTimeout(function(){
+        //     $('#myDiary').removeClass("foo");
+        // },1500)
 
     }
 
@@ -385,19 +386,24 @@ $(window).load(function(){
         // $(rContainer).append('<div id="display"></div>');
         
         if(!myDiaryState){
-            $(myDiary).children('p').children(".fa-chevron-up").removeClass('fa-chevron-up').addClass("fa-chevron-down");
 
             $(myDiary).siblings().hide(400).end().parent().siblings().hide(800);
             $display.show(400);
             for(let i=0;i<diaryData.length;i++){
                 $display.append('<div class="r-content"><p>'+timeData[i]+'</p><p>'+diaryData[i]+'</p></div>');
             }
+
+            $(myDiary).toggleClass('btnActive');
+            $(myDiary).children('p').children(".fa-chevron-down").removeClass('fa-chevron-down').addClass("fa-chevron-up");
             myDiaryState=!myDiaryState;
         }else {
-            $(myDiary).children('p').children(".fa-chevron-down").removeClass('fa-chevron-down').addClass("fa-chevron-up");
+            $(myDiary).children('p').children(".fa-chevron-up").removeClass('fa-chevron-up').addClass("fa-chevron-down");
 
             $display.children().remove();    
             $(myDiary).siblings().show(800).end().parent().siblings().show(800);
+
+            $(myDiary).toggleClass('btnActive');
+            
             myDiaryState=!myDiaryState;
         }
 
@@ -434,21 +440,26 @@ $(window).load(function(){
         if (!aboutState) {
             // $feedBack.siblings().hide(400).end().parent().siblings().hide(800);
             $about.children().show(400,'swing');
-            aboutState=!aboutState;
             // $display3.append('<div id="about" class="center"><a href="mailto:cyan.zhukeqing@qq.com" data-no-instant="">发送邮件到©小猪科技</a></div>')
             $feedBack.children('p').children(".fa-chevron-down").removeClass('fa-chevron-down').addClass("fa-chevron-up");
+            
+            $feedBack.toggleClass('btnActive');
+            aboutState=!aboutState;
         }else{
             // $feedBack.siblings().show(500).end().parent().siblings().show(600);
             // $display3.hide(800);
             $about.children().hide(400,'linear');
             $feedBack.children('p').children(".fa-chevron-up").removeClass('fa-chevron-up').addClass("fa-chevron-down");
-            // $display3.children().remove();    
+            // $display3.children().remove();
+
+            $feedBack.toggleClass('btnActive');
             aboutState=!aboutState;
         }
     });    
 //End   问题反馈
+      
 
-//Begin share/donete
+//Begin 更多 share/donete
      $more.on( "click", function() {
         let moreState=stateObj.moreState;
         if (!moreState) {
@@ -457,24 +468,19 @@ $(window).load(function(){
             $display3.children().show(800);
             // $('#donate').children().show(800);
 
-
+            $more.toggleClass('btnActive');
             moreState=!moreState;
-            console.log(1);
         }else{
             $more.siblings().show(500).end().parent().siblings().show(600);
             $display3.children().hide(400);
-            
+            $more.toggleClass('btnActive');
             moreState=!moreState;
-            console.log(2);
 
         }
         stateObj.moreState=moreState;
     });
 //end   share/donete
 
-//Begin 更多 入口
-    
-//end   更多
 
 
 /**
