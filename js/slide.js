@@ -82,7 +82,7 @@
             var startX, startY, endX, endY;
 
             function touchFn(e){
-                e.preventDefault();
+                // e.preventDefault();
                 var firstTouch = e.changedTouches[0];
                 switch (e.type){
                     case "touchstart":
@@ -104,9 +104,34 @@
          * 右侧滑动。
          *
          */
-        rightLeft: function (e){
-            //TODO:
+        slideRight: function (handler){
+            this.ele.addEventListener("touchstart", touchFn);
+            this.ele.addEventListener("touchend", touchFn);
+            var startX, startY, endX, endY;
+
+            function touchFn(e){
+                // e.preventDefault();
+                var firstTouch = e.changedTouches[0];
+                switch (e.type){
+                    case "touchstart":
+                        startX = firstTouch.pageX;
+                        startY = firstTouch.pageY;
+                        break;
+                    case "touchend":
+                        endX = firstTouch.pageX;
+                        endY = firstTouch.pageY;
+//x方向移动大于y方向的移动，并且x方向的移动小于-25个像素，表示在向右侧滑动
+                        if (Math.abs(endX - startX) >= Math.abs(endY - startY) && startX - endX <= 25){
+                            handler.call(this, e);
+                        }
+                        break;
+                }
+            }
         }
+        /**
+         * 向下滑动。
+         *
+         */
     }
     window.$1 = window.myQuery = myQuery;
 })(window);

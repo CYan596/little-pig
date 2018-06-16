@@ -271,17 +271,46 @@ $(window).load(function(){
 // 滑屏、滑动、点击换屏事件处理
 
 //B 原生滑动事件封装
-    $1("#r-messageContainer").slideLeft(function (e){
-        console.log(this);
-        // this.innerHTML = "左侧滑动了....."
-    })
+    // $1(".p-container").slideLeft(function (e){
+    //     console.log(this);
+    //     // this.innerHTML = "左侧滑动了....."
+    // })
+
+    $1("#frame").slideLeft(function (e){
+       console.log('左侧滑动。');
+        if(screenState==2){
+            $(".p-container").css('transform','translateX('+(-2*w)+'px)');
+            screenState++;
+
+        };
+        if(screenState==1){
+            $(".p-container").css('transform','translateX('+(-w)+'px)');
+            screenState++;
+        };
+        window.changeHeader();
+    });
+    $1("#frame").slideRight(function (e){
+       console.log('右侧滑动。');
+        if(screenState==2){
+            $(".p-container").css('transform','translateX('+(0)+'px)');
+            screenState--;
+        };
+        if(screenState==3){
+            $(".p-container").css('transform','translateX('+(-w)+'px)');
+            screenState--;
+        };
+        window.changeHeader();
+
+        // console.log('右滑');
+    });
+
+
 
 //E 原生滑动事件封装
 
     // 当前屏幕所在位置
     var screenState=1;
-    // var container = document.getElementById("frame");
-    // var container=document.getElementsByTagName('body')[0];
+   
 
 
 
@@ -291,36 +320,6 @@ $(window).load(function(){
     Swipe = new Hammer.Swipe();
     mc.add(Swipe);
 
-
-    // var mc2=new Hammer.Manager($rMessageContainer.get(0));
-    // mc2.add(Swipe);
-    // mc2.on('swipeleft', function (ev) {
-    //     if(screenState==2){
-    //         $(".p-container").css('transform','translateX('+(-2*w)+'px)');
-    //         screenState++;
-
-    //     };
-    //     if(screenState==1){
-    //         $(".p-container").css('transform','translateX('+(-w)+'px)');
-    //         screenState++;
-    //     };
-    //     window.changeHeader();
-
-    //     console.log('左滑');
-    // });
-    // mc2.on('swiperight', function (ev) {
-    //     if(screenState==2){
-    //         $(".p-container").css('transform','translateX('+(0)+'px)');
-    //         screenState--;
-    //     };
-    //     if(screenState==3){
-    //         $(".p-container").css('transform','translateX('+(-w)+'px)');
-    //         screenState--;
-    //     };
-    //     window.changeHeader();
-
-    //     console.log('右滑');
-    // });
 
 // 顶部time-header点击事件绑定
     var topNavArr=document.getElementById('time-header').getElementsByTagName('a');
@@ -340,38 +339,33 @@ $(window).load(function(){
         changeHeader();
     }
 
-    // topNavArr[0].click(function() {
-        // $(".p-container").css('transform','translateX('+(0)+'px)');
-    //     screenState=1;    
+
+    // mc.on('swipeleft', function (ev) {
+    //     if(screenState==2){
+    //         $(".p-container").css('transform','translateX('+(-2*w)+'px)');
+    //         screenState++;
+
+    //     };
+    //     if(screenState==1){
+    //         $(".p-container").css('transform','translateX('+(-w)+'px)');
+    //         screenState++;
+    //     };
+    //     window.changeHeader();
+    // });
+    
+    // mc.on('swiperight', function (ev) {
+    //     if(screenState==2){
+    //         $(".p-container").css('transform','translateX('+(0)+'px)');
+    //         screenState--;
+    //     };
+    //     if(screenState==3){
+    //         $(".p-container").css('transform','translateX('+(-w)+'px)');
+    //         screenState--;
+    //     };
+    //     window.changeHeader();
+
     // });
 
-    mc.on('swipeleft', function (ev) {
-        if(screenState==2){
-            $(".p-container").css('transform','translateX('+(-2*w)+'px)');
-            screenState++;
-
-        };
-        if(screenState==1){
-            $(".p-container").css('transform','translateX('+(-w)+'px)');
-            screenState++;
-        };
-        window.changeHeader();
-
-        console.log('左滑');
-    });
-    mc.on('swiperight', function (ev) {
-        if(screenState==2){
-            $(".p-container").css('transform','translateX('+(0)+'px)');
-            screenState--;
-        };
-        if(screenState==3){
-            $(".p-container").css('transform','translateX('+(-w)+'px)');
-            screenState--;
-        };
-        window.changeHeader();
-
-        console.log('右滑');
-    });
 
     // 根据当前页面状态确认
     window.changeHeader=function changeHeader(){
