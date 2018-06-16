@@ -121,7 +121,7 @@
                         endX = firstTouch.pageX;
                         endY = firstTouch.pageY;
 //x方向移动大于y方向的移动，并且x方向的移动小于-25个像素，表示在向右侧滑动
-                        if (Math.abs(endX - startX) >= Math.abs(endY - startY) && startX - endX <= 25){
+                        if (Math.abs(endX - startX) >= Math.abs(endY - startY) && startX - endX <= -25){
                             handler.call(this, e);
                         }
                         break;
