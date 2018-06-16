@@ -31,7 +31,6 @@
     var $feedBack=$('#feedBack');
     var $display3=$('#display3'); //第三屏挂载点
     var messageData=[];  //由服务器端获取到的数据
-    var $rMessageContainer=$('#r-messageContainer');
     var $more=$('#more');
     var $pTextCenter=('#p-text-center');
 
@@ -40,15 +39,22 @@
     }; //状态对象
 // loading事件
 $(window).load(function(){  
+//Begin 缓存层显隐
     $("#loading").css("opacity",0);
     setTimeout(function(){ $("#loading").css("display","none");}, 1000);
+//End  缓存层显隐
+
 
     // if(w>700){
     //     alert("未对桌面设备优化，请使用移动设备访问  ");  
     // }
 
 //Begin 页面进入时动画
+    // 首页信息流动画
     $rMessageContainer.addClass('animated fadeInUp');
+
+    //首页珠滑动画（仿网易云）
+
 
 //End   页面进入时动画
     
@@ -264,14 +270,57 @@ $(window).load(function(){
 
 // 滑屏、滑动、点击换屏事件处理
 
+//B 原生滑动事件封装
+    $1("#r-messageContainer").slideLeft(function (e){
+        console.log(this);
+        // this.innerHTML = "左侧滑动了....."
+    })
+
+//E 原生滑动事件封装
+
     // 当前屏幕所在位置
     var screenState=1;
+    // var container = document.getElementById("frame");
+    // var container=document.getElementsByTagName('body')[0];
+
+
 
     var container = document.getElementsByClassName("p-container")[0];
     // console.log(pMain);
     var mc = new Hammer.Manager(container);
     Swipe = new Hammer.Swipe();
     mc.add(Swipe);
+
+
+    // var mc2=new Hammer.Manager($rMessageContainer.get(0));
+    // mc2.add(Swipe);
+    // mc2.on('swipeleft', function (ev) {
+    //     if(screenState==2){
+    //         $(".p-container").css('transform','translateX('+(-2*w)+'px)');
+    //         screenState++;
+
+    //     };
+    //     if(screenState==1){
+    //         $(".p-container").css('transform','translateX('+(-w)+'px)');
+    //         screenState++;
+    //     };
+    //     window.changeHeader();
+
+    //     console.log('左滑');
+    // });
+    // mc2.on('swiperight', function (ev) {
+    //     if(screenState==2){
+    //         $(".p-container").css('transform','translateX('+(0)+'px)');
+    //         screenState--;
+    //     };
+    //     if(screenState==3){
+    //         $(".p-container").css('transform','translateX('+(-w)+'px)');
+    //         screenState--;
+    //     };
+    //     window.changeHeader();
+
+    //     console.log('右滑');
+    // });
 
 // 顶部time-header点击事件绑定
     var topNavArr=document.getElementById('time-header').getElementsByTagName('a');
@@ -307,6 +356,8 @@ $(window).load(function(){
             screenState++;
         };
         window.changeHeader();
+
+        console.log('左滑');
     });
     mc.on('swiperight', function (ev) {
         if(screenState==2){
@@ -318,6 +369,8 @@ $(window).load(function(){
             screenState--;
         };
         window.changeHeader();
+
+        console.log('右滑');
     });
 
     // 根据当前页面状态确认

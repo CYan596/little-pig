@@ -313,9 +313,12 @@ body,html{
 	height: 93%;
 	/* overflow-x: hidden; */
 	overflow-y: auto;
+	/* overflow-x: auto; */
 	z-index: -1;
 	word-wrap:break-word;
 	animation-duration: 2s;
+	/* -webkit-overflow-scrolling: touch; */
+	/* text-overflow: ellipsis; */
 }
 .r-content{
 	margin: 0 auto;
