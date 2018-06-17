@@ -127,11 +127,63 @@
                         break;
                 }
             }
-        }
+        },
+        /**
+         * 向上滑动。
+         *
+         */
+        slideUp: function (handler){
+            this.ele.addEventListener("touchstart", touchFn);
+            this.ele.addEventListener("touchend", touchFn);
+            var startX, startY, endX, endY;
+
+            function touchFn(e){
+                // e.preventDefault();
+                var firstTouch = e.changedTouches[0];
+                switch (e.type){
+                    case "touchstart":
+                        startX = firstTouch.pageX;
+                        startY = firstTouch.pageY;
+                        break;
+                    case "touchend":
+                        endX = firstTouch.pageX;
+                        endY = firstTouch.pageY;
+//Y方向移动大于X方向的移动，并且y方向的移动大于25个像素，表示在向上滑动
+                        if (Math.abs(endX - startX) <= Math.abs(endY - startY) && (startY - endY) >= 25){
+                            handler.call(this, e);
+                        }
+                        break;
+                }
+            }
+        },
         /**
          * 向下滑动。
          *
          */
+        slideDown: function (handler){
+            this.ele.addEventListener("touchstart", touchFn);
+            this.ele.addEventListener("touchend", touchFn);
+            var startX, startY, endX, endY;
+
+            function touchFn(e){
+                // e.preventDefault();
+                var firstTouch = e.changedTouches[0];
+                switch (e.type){
+                    case "touchstart":
+                        startX = firstTouch.pageX;
+                        startY = firstTouch.pageY;
+                        break;
+                    case "touchend":
+                        endX = firstTouch.pageX;
+                        endY = firstTouch.pageY;
+//Y方向移动大于X方向的移动，并且y方向的移动大于25个像素，表示在向下滑动
+                        if (Math.abs(endX - startX) <= Math.abs(endY - startY) && (startY - endY) <= -25){
+                            handler.call(this, e);
+                        }
+                        break;
+                }
+            }
+        }
     }
     window.$1 = window.myQuery = myQuery;
 })(window);

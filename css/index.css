@@ -57,7 +57,7 @@ body,html{
 	-ms-align-items: center;
 	align-items: center;
 	box-shadow:1px 0px 4px rgba(0,0,0,.3);
-	background:linear-gradient(to bottom, #8ca1d2 60%, #91afca);
+	/* background:linear-gradient(to bottom, #8ca1d2 60%, #91afca); */
 	z-index: 3;
 	opacity: 0.7;
 
@@ -810,7 +810,7 @@ body,html{
 .p-rotate{
 	animation: 5.5s rotate1 linear  infinite;
 }
-.p-rotate2{
+rotate1{
 	animation: 2.5s rotate2 linear  infinite;
 }
 /* .p-slide1{

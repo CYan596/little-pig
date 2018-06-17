@@ -303,7 +303,16 @@ $(window).load(function(){
 
         // console.log('右滑');
     });
-
+    $1("#frame").slideUp(function (e){
+       console.log('向上滑动。');
+        window.changeHeader();
+    });
+    $1("#frame").slideDown(function (e){
+       console.log('向下滑动。');
+       // 触发下拉动画及下拉刷新
+        HideOtherSection();
+        window.changeHeader();
+    });
 
 
 //E 原生滑动事件封装
@@ -531,12 +540,21 @@ $(window).load(function(){
 
 
 /**
- * 圆角矩形活动组件，隐藏操作函数，同时将箭头形态更换
+ * 下拉刷新函数，触发UI改变及首页日记更新
  *
- * @param {object} ele 除ele外其它的本页圆角矩形隐藏.
+ * @param {}
  */
-function HideOtherSection(ele,boo){
-    
+function HideOtherSection(){
+    // 1、如果第一个r-content的Y坐标与r-messageContainer重合则表示滑到顶部
+    var rOffsetTop=$rMessageContainer.offset().top;
+    var innerOffsetTop=$($rMessageContainer.children('.r-content')[0]).offset().top;
+    if(rOffsetTop==innerOffsetTop){
+        alert('刷新动作');
+    }
+    console.log(rOffsetTop);
+    console.log(innerOffsetTop);
+    // 2、触发下拉刷新动画效果
+    // 3、触发数据更新
 }
 
 
@@ -544,3 +562,4 @@ function HideOtherSection(ele,boo){
 
 
 })
+
