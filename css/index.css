@@ -57,8 +57,9 @@ body,html{
 	-ms-align-items: center;
 	align-items: center;
 	box-shadow:1px 0px 4px rgba(0,0,0,.3);
-	background:linear-gradient(to bottom, #fefefe, #eaecee);
+	background:linear-gradient(to bottom, #8ca1d2 60%, #91afca);
 	z-index: 3;
+	opacity: 0.7;
 
 }
 #time-header a{
@@ -71,14 +72,15 @@ body,html{
 	/* box-sizing: border-box; */
 	/* border: 1px solid #e2e2e2; */
 	/* box-shadow:0 0 1px 1px rgba(0,0,0,.6) inset; */
-	color: #222;
+	color: #fff;
 	letter-spacing: 1px;
-	opacity: 0.7;
+	opacity: 0.9;
 	font-size: 16px;
+	font-weight: bold;
 	/* font-weight: bold; */
 	text-decoration:none;
 	/* animation-delay: 0.8s; */
-    background:linear-gradient(to bottom, #fcfcfd, #e7e8e8);
+    /* background:linear-gradient(to bottom, #fcfcfd, #e7e8e8); */
 	/* transition: all 1s; */
 }
 #time-header a:nth-child(1){
@@ -91,8 +93,10 @@ body,html{
 
 #time-header .active{
 	/* opacity: 1; */
-	color: #fff;
-    background:linear-gradient(to bottom, #c8c9cc, #b2b3b7);
+	color: #222;
+	font-weight: bold;
+    /* background:linear-gradient(to bottom, #04376c 30%, #93a6d2); */
+    background-color: #fff;
 	transition: all 0.5s;
 	/* box-shadow:0 0 6px 0px rgba(0,0,0,.6) inset;	 */
 }
@@ -292,7 +296,7 @@ body,html{
 	width: 500px;
 	height: 500px;
 	margin-left: -250px;
-	margin-top: -456px;
+	margin-top: -476px;
 	transform-origin: 50% 48%;
     border-radius: 47%;
     animation: drift 5000ms infinite ease-in-out;
@@ -305,7 +309,7 @@ body,html{
 	transform:rotate(-90deg);
 
     margin-left: -193px;
-	margin-top: -456px;
+	margin-top: -476px;
     background: linear-gradient(to bottom, #5981aa, #043c6b 80%, #3f8fd2);
 }
 .section-title .wave.two{
@@ -351,7 +355,7 @@ body,html{
 
 /* 信息展示框 */
 #r-messageContainer{
-	height: 93%;
+	height: 95%;
 	/* overflow-x: hidden; */
 	overflow-y: scroll;
 	/* overflow-x: auto; */
@@ -363,7 +367,7 @@ body,html{
 }
 .r-content{
 	margin: 0 auto;
-	width: 90%;
+	width: 92%;
 	/* height: 30px; */
 	color: #737373;
 	padding: 10px 10px;
