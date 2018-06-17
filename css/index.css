@@ -238,10 +238,9 @@ body,html{
 	/* width: 100%; */
 	position: absolute;
 	/* background-color: red; */
-
-	background-color:#e9e9e9;
-	/* margin-left: 100%; */
-
+	background-color: #e9e9e9;
+	color: #737373;
+	
 }
 #sendbox{
 	display: flex;
@@ -270,15 +269,57 @@ body,html{
 	box-shadow:0px 1px 3px rgba(0,0,0,.2);
 	border: 1px solid #6d8cd2;
 }
+
+/*B 标题栏及动画 */
 .section-title{
+	position: relative;
 	color: #909094;
 	margin-top: 10px;
 	margin-bottom: 6px;
-	text-indent: 30px;
+	text-indent: 18px;
 }
 .section-title span{
+	width: 17px;
+	height: 17px;
 	text-indent: 0;
 }
+.section-title .wave{
+	position: absolute;
+	opacity: 0.4;
+	top:3%;
+	left: 50%;
+	background-color: #798edf;
+	width: 500px;
+	height: 500px;
+	margin-left: -250px;
+	margin-top: -456px;
+	transform-origin: 50% 48%;
+    border-radius: 47%;
+    animation: drift 5000ms infinite ease-in-out;
+    /* z-index: 2; */
+}
+.section-title .wave.one{
+    /* opacity: .1; */
+	transform-origin: 50% 48%;
+
+	transform:rotate(-90deg);
+
+    margin-left: -193px;
+	margin-top: -456px;
+    background: linear-gradient(to bottom, #5981aa, #043c6b 80%, #3f8fd2);
+}
+.section-title .wave.two{
+	margin-left: -340px;
+	margin-top: -456px;
+    animation: drift 6500ms infinite ease-in-out;
+ 	width: 480px;
+	transform-origin: 50% 48%;
+    /* opacity: .1; */
+    background: linear-gradient(to bottom, #5981aa, #cde2ef 60%, #3f8fd2);
+}
+
+
+/*E 标题栏 动画 */
  /* section中的方向指示 */
 .p-section-container .fa-chevron-down{
 	float: right;
@@ -317,23 +358,22 @@ body,html{
 	z-index: -1;
 	word-wrap:break-word;
 	animation-duration: 2s;
-	-webkit-overflow-scrolling: touch;
+	/* -webkit-overflow-scrolling: touch; */
 	/* text-overflow: ellipsis; */
 }
 .r-content{
 	margin: 0 auto;
 	width: 90%;
 	/* height: 30px; */
-	color: #111;
+	color: #737373;
 	padding: 10px 10px;
 	/* background:linear-gradient(to bottom, #6f8dd4, #5878bd); */
-	background-color: #fff;
 
-	
+	background-color:#fff;
 	/* box-shadow:0 0 5px 1px rgba(0,0,0,.6) inset; */
 	border-bottom: 1px solid #ccc;
 	/* border-radius: 3px; */
-	opacity: 0.6;
+	opacity: 0.85;
 	/* transform:  translateX(-10%); */
 }
 /* 首尾圆角 */
@@ -706,22 +746,22 @@ body,html{
 
 /*B 珠滑组件 */
 #bead{
-
 	position: fixed;
-	bottom: 10px;
-	margin-left: 50%;
-	
-
-	width: 35px;
-	height: 35px;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
 	opacity: 0.6;
 	
-	transform-style:preserve-3d;
+	/* transform-style:preserve-3d;
 	perspective-origin:50% 50% ;
-	transform: perspective(500px) translateX(-50%);
+	transform: perspective(500px) translateX(-50%); */
 }
-#bead .wrap{
+#bead #b-box{
 	position: relative;
+	top: 50px;
+	left: 50%;
+
 }
 #bead-inner{
 	position: absolute;
@@ -753,6 +793,16 @@ body,html{
 /*E 珠滑组件 */
 
 /*B  工具与动画类*/
+	/* 通用动画工具类 */
+.wave{
+
+}
+.one{
+
+}
+.two{
+
+}
 .p-rotate{
 	animation: 5.5s rotate1 linear  infinite;
 }
@@ -762,6 +812,9 @@ body,html{
 /* .p-slide1{
 	animation: 4s p-slide1 linear  infinite;
 } */
+.breathe{
+	animation: 5.5s breathe ease-in-out infinite;
+}
 	/* 旋转动画 */
 
 @keyframes rotate1{
@@ -827,5 +880,26 @@ body,html{
 		width:77px;
     }
 }	
+	/* 呼吸动画 */
+@keyframes	breathe{
+    0%{
+    	opacity: 1;
+    }
+    50%{
+    	opacity: 0.15;
+    }
+    100%{
+    	opacity: 1;
+	}	
+}
+	/* 旋转动画 */
+@keyframes drift{
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
 
 /*E  工具与动画类*/
