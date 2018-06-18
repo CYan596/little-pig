@@ -138,7 +138,7 @@
             var startX, startY, endX, endY;
 
             function touchFn(e){
-                e.preventDefault();
+                // e.preventDefault();
                 var firstTouch = e.changedTouches[0];
                 switch (e.type){
                     case "touchstart":
@@ -166,7 +166,7 @@
             var startX, startY, endX, endY;
 
             function touchFn(e){
-                e.preventDefault();
+                // e.preventDefault();
                 var firstTouch = e.changedTouches[0];
                 switch (e.type){
                     case "touchstart":

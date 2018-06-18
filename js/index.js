@@ -303,14 +303,14 @@ $(window).load(function(){
 
         // console.log('右滑');
     });
-    $1("#frame").slideUp(function (e){
-       console.log('向上滑动。');
-        window.changeHeader();
-    });
+    // $1("#frame").slideUp(function (e){
+    //    console.log('向上滑动。');
+    //     window.changeHeader();
+    // });
     $1("#frame").slideDown(function (e){
        console.log('向下滑动。');
        // 触发下拉动画及下拉刷新
-        HideOtherSection();
+        refresh();
         window.changeHeader();
     });
 
@@ -544,7 +544,7 @@ $(window).load(function(){
  *
  * @param {}
  */
-function HideOtherSection(){
+function refresh(){
     // 1、如果第一个r-content的Y坐标与r-messageContainer重合则表示滑到顶部
     var rOffsetTop=$rMessageContainer.offset().top;
     var innerOffsetTop=$($rMessageContainer.children('.r-content')[0]).offset().top;
