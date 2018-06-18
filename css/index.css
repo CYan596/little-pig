@@ -387,8 +387,16 @@ body,html{
 #r-messageContainer .r-content:first-child{
 	/* border-radius: 6px 6px 0 0; */
 }
-#r-messageContainer .r-content:last-child{
+#r-messageContainer .r-content:nth-last-child(2){
 	/* border-radius: 0 0 6px 6px; */
+	padding-bottom: 0;
+	margin-bottom: 0;
+	/* background-color: red; */
+}
+/* 底部查看更多 */
+#r-messageContainer .more{
+	height: 40px;
+	/* background-color: red; */
 }
 .r-content p:nth-child(1){
 	letter-spacing:1px;
@@ -411,8 +419,10 @@ body,html{
 .r-content2{
 
 	background:linear-gradient(to bottom, #ff7373, #ff4040);
-
 }
+
+
+/*E 信息展示框 */
 #send{
 	/* transition: all 1s; */
 }

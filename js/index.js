@@ -51,7 +51,7 @@ $(window).load(function(){
 
 //Begin 页面进入时动画
     // 首页信息流动画
-    $rMessageContainer.addClass('animated fadeInUp');
+    // $rMessageContainer.addClass('animated fadeInUp');
 
     //首页珠滑动画（仿网易云）
 
@@ -127,7 +127,7 @@ $(window).load(function(){
                 messageData=results;
                 for(let i=0;i<messageData.length;i++){
                     let object = messageData[i];
-                    $rMessageContainer.append('<div class="r-content"><p>'+object.createdAt+'</p><p>'+object.get('userMessage')+'</p></div>');
+                    $rMessageContainer.prepend('<div class="r-content"><p>'+object.createdAt+'</p><p>'+object.get('userMessage')+'</p></div>');
                     // alert(object.id + ' - ' + object.get('userMessage'));
                     console.log(i);
                 }
