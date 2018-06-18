@@ -357,7 +357,7 @@ body,html{
 #r-messageContainer{
 	padding: 0;
 	height: 100%;
-	/* overflow-x: hidden; */
+	overflow-x: hidden;
 	overflow-y: scroll;
 	/* overflow-x: auto; */
 	z-index: -1;
