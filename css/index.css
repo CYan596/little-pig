@@ -5,6 +5,7 @@
 	background-color: red;
 } */
 body,html{
+	font-family: "Heiti","Microsoft YaHei";
 	
 }
 #frame{
@@ -57,9 +58,7 @@ body,html{
 	-ms-align-items: center;
 	align-items: center;
 	box-shadow:1px 0px 4px rgba(0,0,0,.3);
-	/* background:linear-gradient(to bottom, #8ca1d2 60%, #91afca); */
 	z-index: 3;
-	opacity: 0.7;
 
 }
 #time-header a{
@@ -72,15 +71,16 @@ body,html{
 	/* box-sizing: border-box; */
 	/* border: 1px solid #e2e2e2; */
 	/* box-shadow:0 0 1px 1px rgba(0,0,0,.6) inset; */
-	color: #fff;
+	color: #ababab;
 	letter-spacing: 1px;
-	opacity: 0.9;
+	/* opacity: 0.9; */
 	font-size: 16px;
 	font-weight: bold;
 	/* font-weight: bold; */
 	text-decoration:none;
 	/* animation-delay: 0.8s; */
     /* background:linear-gradient(to bottom, #fcfcfd, #e7e8e8); */
+	background-color: #e9e9e9;
 	/* transition: all 1s; */
 }
 #time-header a:nth-child(1){
@@ -96,9 +96,10 @@ body,html{
 	color: #222;
 	font-weight: bold;
     /* background:linear-gradient(to bottom, #04376c 30%, #93a6d2); */
-    background-color: #fff;
+    /* background-color: #fff; */
 	transition: all 0.5s;
-	/* box-shadow:0 0 6px 0px rgba(0,0,0,.6) inset;	 */
+
+	box-shadow:0px -3px 0px rgba(0,0,0,.6) inset;
 }
 /* #header-dec{
 	position: absolute;
@@ -365,6 +366,7 @@ body,html{
 	animation-duration: 2s;
 	/* -webkit-overflow-scrolling: touch; */
 	/* text-overflow: ellipsis; */
+	transform-style: preserve-3d;
 }
 .r-content{
 	box-sizing: border-box;
@@ -395,8 +397,26 @@ body,html{
 }
 /* 底部查看更多 */
 #r-messageContainer .more{
+	width: 50%;
+	margin: 20px auto;
 	height: 40px;
-	/* background-color: red; */
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold;
+	letter-spacing:4px;
+	background-color: #314963 ;
+	border-radius: 2px;
+
+	transition:all  1.5s ease 0.1s;
+ 	perspective: 600px;
+ 	transform-style: preserve-3d;
+	/* backface-visibility: hidden; */
+	box-shadow:3px 5px 5px rgba(0,0,0,.2);
+
+}
+#r-messageContainer .more:hover{
+ 	perspective: 600px;
+	transform:rotateX(-720deg)  ;
 }
 .r-content p:nth-child(1){
 	letter-spacing:1px;

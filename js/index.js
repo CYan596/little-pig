@@ -8,6 +8,9 @@
 
     // dom变量
     var $rMessageContainer=$("#r-messageContainer");
+    var $oneMore=$rMessageContainer.children('.more');
+    // console.log($oneMore);
+
 
     var sendbox=document.getElementById('sendbox');
     var h=window.innerHeight||document.body.clientHeight||document.documentElement.clientHeight;
@@ -146,6 +149,13 @@ $(window).load(function(){
 
 //End    首屏轮询渲染  
 
+//B 首屏 更多按钮 
+    $oneMore[0].onclick=function(){
+        firstScreenRender();
+        console.log('1');
+    }
+//E 首屏 更多按钮 
+
 //begin 时间处理逻辑
 
     // 时间处理函数
@@ -269,6 +279,8 @@ $(window).load(function(){
  
 
 // 滑屏、滑动、点击换屏事件处理
+
+
 
 //B 原生滑动事件封装
     // $1(".p-container").slideLeft(function (e){
@@ -430,6 +442,7 @@ $(window).load(function(){
     }
 
 // end   日记编辑与保存按钮逻辑
+
 
 
 //Begin 我的日记展示逻辑
