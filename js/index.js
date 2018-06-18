@@ -123,7 +123,7 @@ $(window).load(function(){
                console.log('云端数据与本地数据相同')
             }
             else{
-                $rMessageContainer.children().remove();
+                $rMessageContainer.children('.r-content').remove();
                 messageData=results;
                 for(let i=0;i<messageData.length;i++){
                     let object = messageData[i];
